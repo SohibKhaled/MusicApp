@@ -1,951 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aura | Zoho Music Player</title>
-    <meta name="description" content="A premium music player fetching data from Zoho Creator.">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #8a2387;
-            --secondary: #e94057;
-            --tertiary: #f27121;
-            --text-light: #ffffff;
-            --text-muted: rgba(255, 255, 255, 0.6);
-            --glass-bg: rgba(20, 20, 25, 0.6);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0a0f">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="description" content="VIBE — A sleek, offline-ready music player">
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Outfit', sans-serif;
-        }
+  <title>VIBE — Music Player</title>
 
-        body {
-            background-color: #0f0c29;
-            color: var(--text-light);
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            position: relative;
-        }
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-        /* Animated Background */
-        .bg-animation {
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--tertiary), #0f0c29);
-            background-size: 400% 400%;
-            animation: gradientBg 15s ease infinite;
-            z-index: -1;
-            filter: blur(100px);
-            opacity: 0.8;
-        }
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
 
-        @keyframes gradientBg {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+  <!-- Manifest for PWA -->
+  <link rel="manifest" href="manifest.json">
 
-        .container {
-            width: 90%;
-            max-width: 1000px;
-            height: 80vh;
-            display: flex;
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            box-shadow: var(--glass-shadow);
-            overflow: hidden;
-            position: relative;
-            z-index: 10;
-        }
-
-        /* Sidebar Playlist */
-        .playlist-view {
-            width: 35%;
-            background: rgba(0, 0, 0, 0.2);
-            border-right: 1px solid var(--glass-border);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .playlist-header {
-            padding: 24px;
-            border-bottom: 1px solid var(--glass-border);
-        }
-
-        .playlist-header h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .playlist-header p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-top: 5px;
-        }
-
-        .track-list {
-            flex: 1;
-            overflow-y: auto;
-            list-style: none;
-            padding: 10px;
-        }
-
-        .track-list::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .track-list::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-        }
-
-        .track-item {
-            display: flex;
-            align-items: center;
-            padding: 12px 16px;
-            border-radius: 12px;
-            margin-bottom: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .track-item:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateX(5px);
-        }
-
-        .track-item.active {
-            background: linear-gradient(90deg, rgba(233, 64, 87, 0.3) 0%, transparent 100%);
-            border-left: 3px solid var(--secondary);
-        }
-
-        .track-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-right: 15px;
-            color: var(--secondary);
-        }
-
-        .track-info {
-            flex: 1;
-            overflow: hidden;
-        }
-
-        .track-info h4 {
-            font-size: 1rem;
-            font-weight: 500;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        /* Player Main View */
-        .player-view {
-            width: 65%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 40px;
-            position: relative;
-        }
-
-        .settings-btn {
-            position: absolute;
-            top: 30px;
-            right: 30px;
-            background: none;
-            border: none;
-            color: var(--text-muted);
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-
-        .settings-btn:hover {
-            color: var(--text-light);
-        }
-
-        .top-info {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .now-playing-label {
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.8rem;
-            color: var(--secondary);
-            font-weight: 600;
-            margin-bottom: 30px;
-        }
-
-        .art-container {
-            width: 250px;
-            height: 250px;
-            margin: 0 auto;
-            border-radius: 50%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
-            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-            border: 2px solid rgba(255,255,255,0.05);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            animation: pulse 4s infinite alternate;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .art-container.playing {
-            animation: spin 20s linear infinite;
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(233, 64, 87, 0.4); }
-            100% { box-shadow: 0 0 0 20px rgba(233, 64, 87, 0); }
-        }
-
-        @keyframes spin {
-            100% { transform: rotate(360deg); }
-        }
-
-        .art-container i {
-            font-size: 5rem;
-            color: rgba(255,255,255,0.5);
-        }
-
-        .track-details {
-            margin-top: 30px;
-        }
-
-        .track-details h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 5px;
-            background: linear-gradient(to right, #fff, #aaa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .track-details p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-        }
-
-        /* Controls */
-        .controls-container {
-            margin-top: 40px;
-        }
-
-        .progress-container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
-        .time {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            min-width: 45px;
-        }
-
-        .progress-bar {
-            flex: 1;
-            height: 6px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 3px;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .progress {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            border-radius: 3px;
-            width: 0%;
-            position: relative;
-        }
-        
-        .progress::after {
-            content: '';
-            position: absolute;
-            right: -6px;
-            top: -4px;
-            width: 14px;
-            height: 14px;
-            background: #fff;
-            border-radius: 50%;
-            box-shadow: 0 0 10px rgba(0,0,0,0.5);
-            opacity: 0;
-            transition: opacity 0.2s;
-        }
-        
-        .progress-bar:hover .progress::after {
-            opacity: 1;
-        }
-
-        .buttons {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 30px;
-        }
-
-        .btn {
-            background: none;
-            border: none;
-            color: var(--text-light);
-            font-size: 1.2rem;
-            cursor: pointer;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: scale(1.1);
-        }
-
-        .btn-play {
-            width: 65px;
-            height: 65px;
-            background: linear-gradient(135deg, var(--secondary), var(--primary));
-            font-size: 1.5rem;
-            box-shadow: 0 10px 20px rgba(233, 64, 87, 0.4);
-        }
-
-        .btn-play:hover {
-            background: linear-gradient(135deg, var(--secondary), var(--primary));
-            transform: scale(1.1) translateY(-3px);
-            box-shadow: 0 15px 25px rgba(233, 64, 87, 0.6);
-        }
-
-        /* Modal Overlay */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(0,0,0,0.6);
-            backdrop-filter: blur(10px);
-            z-index: 100;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s;
-        }
-        
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal-box {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 40px;
-            width: 90%;
-            max-width: 450px;
-            box-shadow: var(--glass-shadow);
-            transform: translateY(20px);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        
-        .modal-overlay.active .modal-box {
-            transform: translateY(0);
-        }
-
-        .modal-box h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-        
-        .modal-box p {
-            color: var(--text-muted);
-            text-align: center;
-            font-size: 0.9rem;
-            margin-bottom: 25px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            background: rgba(0, 0, 0, 0.2);
-            border: 1px solid var(--glass-border);
-            border-radius: 10px;
-            color: white;
-            font-size: 1rem;
-            outline: none;
-            transition: border 0.3s;
-        }
-
-        .form-control:focus {
-            border-color: var(--secondary);
-            background: rgba(0, 0, 0, 0.4);
-        }
-
-        .btn-primary {
-            width: 100%;
-            padding: 14px;
-            background: linear-gradient(135deg, var(--secondary), var(--primary));
-            border: none;
-            border-radius: 10px;
-            color: white;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            margin-top: 10px;
-            box-shadow: 0 5px 15px rgba(233, 64, 87, 0.3);
-            transition: all 0.3s;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(233, 64, 87, 0.5);
-        }
-
-        /* Loading Spinner */
-        .loader {
-            display: none;
-            width: 40px;
-            height: 40px;
-            border: 3px solid rgba(255,255,255,0.1);
-            border-radius: 50%;
-            border-top-color: var(--secondary);
-            animation: spin 1s ease-in-out infinite;
-            margin: 20px auto;
-        }
-        
-        .loader.active {
-            display: block;
-        }
-
-        /* States */
-        .empty-state {
-            text-align: center;
-            padding: 40px 20px;
-            color: var(--text-muted);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-        }
-        
-        .empty-state i {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            opacity: 0.5;
-        }
-
-        .notification {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(10px);
-            padding: 12px 25px;
-            border-radius: 30px;
-            color: white;
-            font-weight: 500;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .notification.show {
-            transform: translateX(-50%) translateY(0);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 800px) {
-            .container {
-                flex-direction: column;
-                height: 90vh;
-            }
-            .playlist-view {
-                width: 100%;
-                height: 40%;
-                border-right: none;
-                border-bottom: 1px solid var(--glass-border);
-            }
-            .player-view {
-                width: 100%;
-                height: 60%;
-                padding: 20px;
-            }
-            .art-container {
-                width: 150px;
-                height: 150px;
-            }
-            .art-container i { font-size: 3rem; }
-            .track-details h1 { font-size: 1.5rem; }
-            .btn-play { width: 55px; height: 55px; font-size: 1.2rem; }
-            .now-playing-label { margin-bottom: 15px; }
-        }
-    </style>
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎵</text></svg>">
+  <link rel="apple-touch-icon" href="assets/default-cover.png">
 </head>
 <body>
-    <div class="bg-animation"></div>
 
-    <div class="container">
-        <!-- Sidebar Playlist -->
-        <div class="playlist-view">
-            <div class="playlist-header">
-                <h2><i class="fas fa-list-music"></i> Library</h2>
-                <p id="playlist-count">0 tracks found</p>
-                <div class="loader" id="playlist-loader"></div>
-            </div>
-            <ul class="track-list" id="track-list">
-                <div class="empty-state">
-                    <i class="fas fa-music"></i>
-                    <p>No tracks loaded yet.</p>
-                    <p style="font-size: 0.8rem; margin-top: 10px;">Check settings to connect Zoho API.</p>
-                </div>
-            </ul>
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- App Shell -->
+  <div id="app">
+
+    <!-- ═══════ Header ═══════ -->
+    <header class="header">
+      <div class="header__brand">
+        <div class="header__logo">🎵</div>
+        <h1 class="header__title">VIBE</h1>
+      </div>
+      <div class="header__actions">
+        <button class="header__btn" id="btn-shuffle-header" aria-label="Toggle shuffle" title="Shuffle">🔀</button>
+        <button class="header__btn" id="btn-view-toggle" aria-label="Toggle view" title="Toggle view">🎵</button>
+      </div>
+    </header>
+
+    <!-- ═══════ Loading View ═══════ -->
+    <div class="view active" id="loading-view">
+      <div class="loading">
+        <div class="loading__spinner"></div>
+        <p class="loading__text">Loading your music…</p>
+      </div>
+    </div>
+
+    <!-- ═══════ Empty View ═══════ -->
+    <div class="view" id="empty-view">
+      <div class="empty-state">
+        <div class="empty-state__icon">🎶</div>
+        <h2 class="empty-state__title">No Music Found</h2>
+        <p class="empty-state__text">
+          Add your music files to the <strong>music/</strong> folder and update 
+          <strong>music/tracks.json</strong> with your track details.
+        </p>
+      </div>
+    </div>
+
+    <!-- ═══════ Playlist View ═══════ -->
+    <div class="view" id="playlist-view">
+      <div class="playlist-header">
+        <h2 class="playlist-header__title">Your Library</h2>
+        <p class="playlist-header__count" id="track-count">0 tracks</p>
+      </div>
+      <ul class="track-list" id="track-list">
+        <!-- Tracks rendered by JS -->
+      </ul>
+    </div>
+
+    <!-- ═══════ Now Playing View ═══════ -->
+    <div class="view" id="player-view">
+      <div class="now-playing">
+
+        <!-- Cover Art -->
+        <div class="cover-container" id="cover-container">
+          <img class="cover-art" id="cover-art" src="assets/default-cover.png" alt="Album Cover" loading="lazy">
         </div>
 
-        <!-- Main Player -->
-        <div class="player-view">
-            <button class="settings-btn" id="openSettingsBtn" title="API Settings">
-                <i class="fas fa-cog"></i>
+        <div class="now-playing__right">
+          <!-- Track Info -->
+          <div class="track-info">
+            <h2 class="track-info__title" id="track-title">No Track Selected</h2>
+            <p class="track-info__artist" id="track-artist">—</p>
+          </div>
+
+          <!-- Progress Bar -->
+          <div class="progress-container">
+            <div class="progress-bar" id="progress-bar">
+              <div class="progress-bar__buffered" id="progress-buffered"></div>
+              <div class="progress-bar__fill" id="progress-fill"></div>
+              <div class="progress-bar__thumb" id="progress-thumb"></div>
+            </div>
+            <div class="progress-times">
+              <span id="time-current">0:00</span>
+              <span id="time-duration">--:--</span>
+            </div>
+          </div>
+
+          <!-- Main Controls -->
+          <div class="controls">
+            <button class="ctrl-btn ctrl-btn--sm" id="btn-shuffle" aria-label="Shuffle" title="Shuffle">
+              <span class="ctrl-icon">🔀</span>
             </button>
+            <button class="ctrl-btn ctrl-btn--md" id="btn-prev" aria-label="Previous" title="Previous">
+              <span class="ctrl-icon">⏮</span>
+            </button>
+            <button class="ctrl-btn ctrl-btn--lg" id="btn-play" aria-label="Play/Pause" title="Play">
+              <span class="ctrl-icon">▶</span>
+            </button>
+            <button class="ctrl-btn ctrl-btn--md" id="btn-next" aria-label="Next" title="Next">
+              <span class="ctrl-icon">⏭</span>
+            </button>
+            <button class="ctrl-btn ctrl-btn--sm" id="btn-repeat" aria-label="Repeat" title="Repeat">
+              <span class="ctrl-icon">🔁</span>
+            </button>
+          </div>
 
-            <div class="top-info">
-                <p class="now-playing-label">Now Playing</p>
-                <div class="art-container" id="art-container">
-                    <i class="fas fa-headphones"></i>
-                </div>
-                <div class="track-details">
-                    <h1 id="track-title">Select a Track</h1>
-                    <p id="track-artist">Zoho Creator Audio</p>
-                </div>
+          <!-- Volume -->
+          <div class="volume-section">
+            <span class="volume-section__icon" id="volume-icon">🔊</span>
+            <div class="volume-slider" id="volume-slider">
+              <div class="volume-slider__fill" id="volume-fill" style="width: 80%"></div>
             </div>
+          </div>
 
-            <div class="controls-container">
-                <div class="progress-container">
-                    <span class="time" id="current-time">0:00</span>
-                    <div class="progress-bar" id="progress-bar">
-                        <div class="progress" id="progress"></div>
-                    </div>
-                    <span class="time" id="duration">0:00</span>
-                </div>
-
-                <div class="buttons">
-                    <button class="btn" id="btn-prev"><i class="fas fa-backward-step"></i></button>
-                    <button class="btn btn-play" id="btn-play"><i class="fas fa-play" id="play-icon"></i></button>
-                    <button class="btn" id="btn-next"><i class="fas fa-forward-step"></i></button>
-                </div>
-            </div>
         </div>
+      </div>
     </div>
 
-    <!-- Zoho Settings Modal -->
-    <div class="modal-overlay" id="settingsModal">
-        <div class="modal-box">
-            <h3><i class="fas fa-cloud-arrow-down" style="color: var(--secondary)"></i> Zoho API Setup</h3>
-            <p>Please provide your app info to fetch records.</p>
-            
-            <div class="form-group">
-                <label for="accountOwner">Account Owner Name</label>
-                <input type="text" class="form-control" id="accountOwner" placeholder="e.g., john.doe">
-            </div>
-            
-            <div class="form-group">
-                <label for="appLinkName">App Link Name</label>
-                <input type="text" class="form-control" id="appLinkName" placeholder="e.g., my-music-app">
-            </div>
-            
-            <button class="btn-primary" id="saveSettingsBtn">Save & Fetch Tracks</button>
-            <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 15px;">Note: Fetching from Zoho directly in browser may require a CORS bypass extension if Zoho restricts cross-origin resource sharing.</p>
-        </div>
+  </div>
+
+  <!-- ═══════ Mini Player ═══════ -->
+  <div class="mini-player" id="mini-player">
+    <div class="mini-player__progress">
+      <div class="mini-player__progress-fill" id="mini-progress-fill"></div>
     </div>
-
-    <div class="notification" id="notification">
-        <i class="fas fa-info-circle"></i>
-        <span id="notif-text">Notification message</span>
+    <div class="mini-player__content">
+      <img class="mini-player__cover" id="mini-cover" src="assets/default-cover.png" alt="Cover" loading="lazy">
+      <div class="mini-player__info" id="mini-info">
+        <div class="mini-player__title" id="mini-title">No Track</div>
+        <div class="mini-player__artist" id="mini-artist">—</div>
+      </div>
+      <div class="mini-player__controls">
+        <button class="mini-ctrl" id="mini-btn-play" aria-label="Play/Pause">▶</button>
+        <button class="mini-ctrl" id="mini-btn-next" aria-label="Next">⏭</button>
+      </div>
     </div>
+  </div>
 
-    <!-- Hidden audio element -->
-    <audio id="audio-player"></audio>
+  <!-- App Script -->
+  <script src="app.js"></script>
 
-    <script>
-        // Data provided by User
-        const ZOHO_CREDENTIALS = {
-            clientId: "1000.9DEVRJFUEM9K27R7HJ2JNXQR93VOGK",
-            clientSecret: "8cb43706a377d3d90fbe633cb3612dccc6bf91c37d",
-            refreshToken: "1000.aa81724b535576ae1aeea86e12a6a7e7.7cdd464a891eac69b926bc7c6aa36a2c",
-            accessToken: "1000.0b14cd3f90d2a52b9029118c00409867.4330b68ae7b2fc5e10a4d2c47867c4e5",
-            apiDomain: "https://www.zohoapis.com",
-            reportName: "All_Musics",
-            accountOwnerName: "one-mea-pxtraining3190",
-            appLinkName: "music-app"
-        };
-
-        // App State
-        let tracks = [];
-        let currentTrackIndex = -1;
-        let isPlaying = false;
-        let objectUrls = []; // Track created blob URLs to revoke them and save memory
-
-        // Elements
-        const audioPlayer = document.getElementById('audio-player');
-        const trackListEl = document.getElementById('track-list');
-        const playlistCountEl = document.getElementById('playlist-count');
-        const playlistLoader = document.getElementById('playlist-loader');
-        
-        const trackTitleEl = document.getElementById('track-title');
-        const artContainer = document.getElementById('art-container');
-        const playBtn = document.getElementById('btn-play');
-        const playIcon = document.getElementById('play-icon');
-        const prevBtn = document.getElementById('btn-prev');
-        const nextBtn = document.getElementById('btn-next');
-        
-        const progressBar = document.getElementById('progress-bar');
-        const progressEl = document.getElementById('progress');
-        const currentTimeEl = document.getElementById('current-time');
-        const durationEl = document.getElementById('duration');
-
-        const settingsModal = document.getElementById('settingsModal');
-        const openSettingsBtn = document.getElementById('openSettingsBtn');
-        const saveSettingsBtn = document.getElementById('saveSettingsBtn');
-        const accountOwnerInput = document.getElementById('accountOwner');
-        const appLinkNameInput = document.getElementById('appLinkName');
-        const notification = document.getElementById('notification');
-        const notifText = document.getElementById('notif-text');
-
-        // Functions
-        function showNotification(msg, isError = false) {
-            notifText.innerText = msg;
-            notification.querySelector('i').className = isError ? 'fas fa-exclamation-circle' : 'fas fa-check-circle';
-            notification.querySelector('i').style.color = isError ? '#e94057' : '#2ecc71';
-            notification.classList.add('show');
-            setTimeout(() => notification.classList.remove('show'), 4000);
-        }
-
-        function init() {
-            // Load settings
-            const savedOwner = localStorage.getItem('zohoAccountOwner') || ZOHO_CREDENTIALS.accountOwnerName;
-            const savedApp = localStorage.getItem('zohoAppLinkName') || ZOHO_CREDENTIALS.appLinkName;
-            
-            if (savedOwner && savedApp) {
-                accountOwnerInput.value = savedOwner;
-                appLinkNameInput.value = savedApp;
-                fetchRecords(savedOwner, savedApp);
-            } else {
-                settingsModal.classList.add('active');
-            }
-
-            // Event Listeners
-            openSettingsBtn.addEventListener('click', () => settingsModal.classList.add('active'));
-            
-            saveSettingsBtn.addEventListener('click', () => {
-                const owner = accountOwnerInput.value.trim();
-                const app = appLinkNameInput.value.trim();
-                if(!owner || !app) {
-                    showNotification('Please fill in both fields', true);
-                    return;
-                }
-                localStorage.setItem('zohoAccountOwner', owner);
-                localStorage.setItem('zohoAppLinkName', app);
-                settingsModal.classList.remove('active');
-                fetchRecords(owner, app);
-            });
-
-            // Player Listeners
-            playBtn.addEventListener('click', togglePlay);
-            prevBtn.addEventListener('click', playPrev);
-            nextBtn.addEventListener('click', playNext);
-            
-            audioPlayer.addEventListener('timeupdate', updateProgress);
-            audioPlayer.addEventListener('ended', playNext);
-            audioPlayer.addEventListener('loadeddata', () => {
-                durationEl.innerText = formatTime(audioPlayer.duration);
-            });
-            audioPlayer.addEventListener('error', (e) => {
-                console.error("Audio error", audioPlayer.error);
-                if(currentTrackIndex !== -1) {
-                    showNotification("Error playing audio stream", true);
-                }
-            });
-
-            progressBar.addEventListener('click', seekTo);
-        }
-
-        // New token generation if the specific one expires
-        async function getValidToken() {
-            // Zoho tokens expire in 1 hour. We initially try the provided one.
-            // If we get a 401, we use the refresh_token to get a new one.
-            return ZOHO_CREDENTIALS.accessToken;
-        }
-
-        async function fetchRecords(owner, app) {
-            playlistLoader.classList.add('active');
-            trackListEl.innerHTML = '';
-            
-            const apiUrl = `${ZOHO_CREDENTIALS.apiDomain}/creator/v2.1/data/${owner}/${app}/report/${ZOHO_CREDENTIALS.reportName}`;
-
-            try {
-                const token = await getValidToken();
-                const headers = {
-                    'Authorization': `Zoho-oauthtoken ${token}`,
-                    // Note: 'Bearer' is also commonly used in v2.1, but Zoho docs often use 'Zoho-oauthtoken'
-                };
-
-                const response = await fetch(apiUrl, { headers: headers });
-                
-                if (response.status === 401) {
-                    // Try to refresh token - NOTE: This will likely fail due to CORS in browser context
-                    // without a server proxy, but we implement the logic for completeness.
-                    throw new Error("Token expired or unauthorized. Please use valid token.");
-                }
-
-                if (!response.ok) {
-                    throw new Error(`API Error: ${response.status}`);
-                }
-
-                const data = await response.json();
-                
-                if (data.code === 3000 && data.data) {
-                    tracks = data.data.filter(rec => rec.Music); // Ensure it has a music file
-                    renderPlaylist();
-                    showNotification('Tracks loaded successfully');
-                } else {
-                    throw new Error(data.message || "Failed to load records");
-                }
-                
-            } catch (err) {
-                console.error(err);
-                if(err.message.includes("Failed to fetch")) {
-                     trackListEl.innerHTML = `
-                        <div class="empty-state">
-                            <i class="fas fa-unlink" style="color:var(--secondary)"></i>
-                            <p>CORS Error.</p>
-                            <p style="font-size: 0.8rem; margin-top: 10px;">Browser blocked the request. Use a CORS bypass extension or a proxy.</p>
-                        </div>`;
-                } else {
-                    trackListEl.innerHTML = `
-                        <div class="empty-state">
-                            <i class="fas fa-exclamation-triangle" style="color:var(--tertiary)"></i>
-                            <p>Error: ${err.message}</p>
-                        </div>`;
-                }
-            } finally {
-                playlistLoader.classList.remove('active');
-            }
-        }
-
-        function renderPlaylist() {
-            playlistCountEl.innerText = `${tracks.length} tracks`;
-            trackListEl.innerHTML = '';
-
-            if (tracks.length === 0) {
-                 trackListEl.innerHTML = `
-                    <div class="empty-state">
-                        <i class="fas fa-box-open"></i>
-                        <p>No audio files found in Zoho records.</p>
-                    </div>`;
-                return;
-            }
-
-            tracks.forEach((track, index) => {
-                const li = document.createElement('li');
-                li.className = 'track-item';
-                li.id = `track-${index}`;
-                
-                // Track name logic: Assuming field is Music_Name
-                const trackName = track.Music_Name || `Track ${index + 1}`;
-                
-                li.innerHTML = `
-                    <div class="track-icon">
-                        <i class="fas fa-music"></i>
-                    </div>
-                    <div class="track-info">
-                        <h4>${trackName}</h4>
-                    </div>
-                `;
-                
-                li.addEventListener('click', () => loadTrack(index));
-                trackListEl.appendChild(li);
-            });
-        }
-
-        async function loadTrack(index) {
-            if (index < 0 || index >= tracks.length) return;
-            
-            // UI Updates
-            if (currentTrackIndex !== -1) {
-                document.getElementById(`track-${currentTrackIndex}`).classList.remove('active');
-            }
-            
-            currentTrackIndex = index;
-            const trackItem = document.getElementById(`track-${currentTrackIndex}`);
-            trackItem.classList.add('active');
-            trackItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            
-            const track = tracks[currentTrackIndex];
-            trackTitleEl.innerText = track.Music_Name || `Track ${currentTrackIndex + 1}`;
-            
-            // Audio loading involves fetching the file with auth headers if it's a secured Zoho link
-            try {
-                showNotification("Buffering...", false);
-                const token = await getValidToken();
-                let audioUrl = track.Music; // This might be a relative relative path or file ID
-                
-                // If it's just a file name/path, we need to construct the download URL
-                // API v2.1 download URL format typically differs. Assumed standard format text.
-                if(!audioUrl.startsWith('http')) {
-                   const owner = localStorage.getItem('zohoAccountOwner') || ZOHO_CREDENTIALS.accountOwnerName;
-                   const app = localStorage.getItem('zohoAppLinkName') || ZOHO_CREDENTIALS.appLinkName;
-                   // Typical Zoho Creator download pattern
-                   audioUrl = `${ZOHO_CREDENTIALS.apiDomain}/creator/v2.1/data/${owner}/${app}/report/${ZOHO_CREDENTIALS.reportName}/${track.ID}/Music/download`;
-                }
-
-                // Fetching the audio as a blob to pass Authorization headers
-                const response = await fetch(audioUrl, {
-                    headers: { 'Authorization': `Zoho-oauthtoken ${token}` }
-                });
-                
-                if(!response.ok) throw new Error("Failed to fetch audio stream");
-                
-                const blob = await response.blob();
-                const blobUrl = URL.createObjectURL(blob);
-                
-                // Clean up previous blob to avoid memory leak
-                if(objectUrls.length > 0) {
-                    URL.revokeObjectURL(objectUrls.pop());
-                }
-                objectUrls.push(blobUrl);
-                
-                audioPlayer.src = blobUrl;
-                audioPlayer.load();
-                
-                isPlaying = false;
-                togglePlay();
-
-            } catch (err) {
-                console.error("Audio Load Error:", err);
-                showNotification("Could not load audio file. Ensure CORS isn't blocking the download.", true);
-            }
-        }
-
-        function togglePlay() {
-            if (currentTrackIndex === -1 && tracks.length > 0) {
-                loadTrack(0);
-                return;
-            } else if (currentTrackIndex === -1) {
-                return;
-            }
-
-            if (isPlaying) {
-                audioPlayer.pause();
-                playIcon.className = 'fas fa-play';
-                artContainer.classList.remove('playing');
-            } else {
-                audioPlayer.play().catch(e => console.error("Playback prevented", e));
-                playIcon.className = 'fas fa-pause';
-                artContainer.classList.add('playing');
-            }
-            isPlaying = !isPlaying;
-        }
-
-        function playNext() {
-            let nextIndex = currentTrackIndex + 1;
-            if (nextIndex >= tracks.length) nextIndex = 0; // Loop back
-            if (tracks.length > 0) loadTrack(nextIndex);
-        }
-
-        function playPrev() {
-            let prevIndex = currentTrackIndex - 1;
-            if (prevIndex < 0) prevIndex = tracks.length - 1; // Go to last
-            if (tracks.length > 0) loadTrack(prevIndex);
-        }
-
-        function updateProgress() {
-            const { duration, currentTime } = audioPlayer;
-            if (isNaN(duration)) return;
-            
-            const progressPercent = (currentTime / duration) * 100;
-            progressEl.style.width = `${progressPercent}%`;
-            
-            currentTimeEl.innerText = formatTime(currentTime);
-        }
-
-        function seekTo(e) {
-            const duration = audioPlayer.duration;
-            if (isNaN(duration)) return;
-            
-            const clientX = e.clientX || e.touches?.[0].clientX;
-            // Get position relative to progress bar
-            const bcr = progressBar.getBoundingClientRect();
-            let pPercent = (clientX - bcr.left) / bcr.width;
-            
-            if (pPercent < 0) pPercent = 0;
-            if (pPercent > 1) pPercent = 1;
-            
-            audioPlayer.currentTime = pPercent * duration;
-        }
-
-        function formatTime(seconds) {
-            if(isNaN(seconds)) return "0:00";
-            const min = Math.floor(seconds / 60);
-            const sec = Math.floor(seconds % 60);
-            return `${min}:${sec.toString().padStart(2, '0')}`;
-        }
-
-        // Initialize App
-        window.addEventListener('DOMContentLoaded', init);
-
-    </script>
 </body>
 </html>
