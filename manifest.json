@@ -1,7 +1,7 @@
 {
-  "name": "VIBE Music Player",
+  "name": "VIBE 2.0 Music Player",
   "short_name": "VIBE",
-  "description": "A sleek, offline-ready music player",
+  "description": "Ultra-fast offline & streaming music player with Gym Mode & smart playlists",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#0a0a0f",
@@ -13,6 +13,26 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Gym Beast Mode",
+      "short_name": "Gym",
+      "description": "Start high energy workout playlist",
+      "url": "./#gym"
+    },
+    {
+      "name": "Search & Stream",
+      "short_name": "Search",
+      "description": "Search English & Arabic songs",
+      "url": "./#search"
+    },
+    {
+      "name": "My Playlists",
+      "short_name": "Playlists",
+      "description": "Open your custom playlists",
+      "url": "./#library"
     }
   ]
 }

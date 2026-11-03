@@ -1,161 +1,1121 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <meta name="theme-color" content="#0a0a0f">
+  <meta name="theme-color" content="#0a0a12">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="description" content="VIBE — A sleek, offline-ready music player">
+  <meta name="description" content="VIBE 2.0 — Ultra-fast music player with Gym Mode, online streaming & zero-delay gapless playback">
 
-  <title>VIBE — Music Player</title>
+  <title>VIBE 2.0 — Music & Gym Player</title>
 
-  <!-- Preconnect -->
+  <!-- Preconnect Fonts & CDNs -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cairo:wght@500;700;800&display=swap" rel="stylesheet">
 
   <!-- Manifest for PWA -->
   <link rel="manifest" href="manifest.json">
 
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
   <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎵</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
   <link rel="apple-touch-icon" href="assets/default-cover.png">
 </head>
 <body>
 
-  <!-- Toast Container -->
-  <div class="toast-container" id="toast-container"></div>
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
 
-  <!-- App Shell -->
+  <!-- Background Ambient Glow -->
+  <div class="ambient-glow" id="ambient-glow"></div>
+
+  <!-- ==================== APP CONTAINER ==================== -->
   <div id="app">
 
-    <!-- ═══════ Header ═══════ -->
-    <header class="header">
-      <div class="header__brand">
-        <div class="header__logo">🎵</div>
-        <h1 class="header__title">VIBE</h1>
+    <!-- Top App Bar -->
+    <header class="app-header">
+      <div class="header-brand">
+        <span class="brand-bolt">⚡</span>
+        <div class="brand-text">
+          <span class="brand-name">VIBE</span>
+          <span class="brand-badge">v2.0</span>
+        </div>
       </div>
-      <div class="header__actions">
-        <button class="header__btn" id="btn-shuffle-header" aria-label="Toggle shuffle" title="Shuffle">🔀</button>
-        <button class="header__btn" id="btn-view-toggle" aria-label="Toggle view" title="Toggle view">🎵</button>
+
+      <div class="header-actions">
+        <!-- Language Switcher (AR / EN) -->
+        <button class="lang-toggle-btn" id="btn-header-lang" aria-label="Toggle Language" title="تغيير اللغة / Switch Language">
+          🌐 عربي
+        </button>
+
+        <!-- Network status pill -->
+        <div class="net-status-pill" id="net-status" title="Connection Status">
+          <span class="status-dot"></span>
+          <span class="status-label">Online</span>
+        </div>
+
+        <!-- Sleep timer indicator/toggle -->
+        <button class="icon-btn" id="btn-header-sleep" aria-label="Sleep Timer" title="Sleep Timer">
+          ⏱️
+          <span class="sleep-indicator" id="sleep-indicator" style="display: none;"></span>
+        </button>
+
+        <!-- Studio EQ & Bass Boost -->
+        <button class="icon-btn" id="btn-header-eq" aria-label="Equalizer & Bass Boost" title="Equalizer & Bass Boost">
+          🎚️
+        </button>
+
+        <!-- Theme Picker -->
+        <button class="icon-btn" id="btn-header-theme" aria-label="Theme Color" title="Change Visual Theme">
+          🎨
+        </button>
+
+        <!-- Quick Random Play -->
+        <button class="icon-btn" id="btn-header-shuffle" aria-label="Shuffle All" title="Shuffle All Music">
+          🔀
+        </button>
       </div>
     </header>
 
-    <!-- ═══════ Loading View ═══════ -->
-    <div class="view active" id="loading-view">
-      <div class="loading">
-        <div class="loading__spinner"></div>
-        <p class="loading__text">Loading your music…</p>
-      </div>
-    </div>
+    <!-- Main Content Area -->
+    <main class="main-content" id="main-content">
 
-    <!-- ═══════ Empty View ═══════ -->
-    <div class="view" id="empty-view">
-      <div class="empty-state">
-        <div class="empty-state__icon">🎶</div>
-        <h2 class="empty-state__title">No Music Found</h2>
-        <p class="empty-state__text">
-          Add your music files to the <strong>music/</strong> folder and update 
-          <strong>music/tracks.json</strong> with your track details.
-        </p>
-      </div>
-    </div>
+      <!-- ==================== VIEW 1: HOME / DISCOVER ==================== -->
+      <section class="tab-view active" id="view-home">
 
-    <!-- ═══════ Playlist View ═══════ -->
-    <div class="view" id="playlist-view">
-      <div class="playlist-header">
-        <h2 class="playlist-header__title">Your Library</h2>
-        <p class="playlist-header__count" id="track-count">0 tracks</p>
-      </div>
-      <ul class="track-list" id="track-list">
-        <!-- Tracks rendered by JS -->
-      </ul>
-    </div>
-
-    <!-- ═══════ Now Playing View ═══════ -->
-    <div class="view" id="player-view">
-      <div class="now-playing">
-
-        <!-- Cover Art -->
-        <div class="cover-container" id="cover-container">
-          <img class="cover-art" id="cover-art" src="assets/default-cover.png" alt="Album Cover" loading="lazy">
+        <!-- Gym Beast Mode Hero Banner -->
+        <div class="hero-card" id="hero-gym-card">
+          <div class="hero-card__glow"></div>
+          <div class="hero-card__content">
+            <span class="hero-pill">🔥 GYM WORKOUT</span>
+            <h2 class="hero-title">Beast Mode Motivation</h2>
+            <p class="hero-subtitle">High-tempo phonk, hardstyle & Arabic energy beats with 0ms gapless transition</p>
+            <div class="hero-actions">
+              <button class="btn btn-primary btn-glow" id="btn-hero-play">
+                <span class="btn-icon">▶</span> Play Gym Mix
+              </button>
+              <button class="btn btn-glass" id="btn-hero-gym-view">
+                ⚡ Gym HUD
+              </button>
+            </div>
+          </div>
+          <div class="hero-graphic">
+            <div class="pulse-ring"></div>
+            <span class="hero-emoji">🏋️‍♂️</span>
+          </div>
         </div>
 
-        <div class="now-playing__right">
-          <!-- Track Info -->
-          <div class="track-info">
-            <h2 class="track-info__title" id="track-title">No Track Selected</h2>
-            <p class="track-info__artist" id="track-artist">—</p>
-          </div>
-
-          <!-- Progress Bar -->
-          <div class="progress-container">
-            <div class="progress-bar" id="progress-bar">
-              <div class="progress-bar__buffered" id="progress-buffered"></div>
-              <div class="progress-bar__fill" id="progress-fill"></div>
-              <div class="progress-bar__thumb" id="progress-thumb"></div>
-            </div>
-            <div class="progress-times">
-              <span id="time-current">0:00</span>
-              <span id="time-duration">--:--</span>
+        <!-- Energy & Mood Stations Carousel -->
+        <div class="mood-stations-section">
+          <div class="section-header">
+            <div>
+              <h3 class="section-title" data-i18n="mood_stations">⚡ Mood &amp; Energy Stations</h3>
+              <span class="section-count" data-i18n="instant_mix">Instant Curated Streams</span>
             </div>
           </div>
+          <div class="mood-stations-scroll">
+            <div class="mood-card" data-station="phonk">
+              <div class="mood-card-bg phonk-bg"></div>
+              <span class="mood-emoji">🔥</span>
+              <h4 class="mood-name" data-i18n="station_phonk">Gym Phonk</h4>
+              <p class="mood-desc" data-i18n="station_phonk_desc">Heavy lifting bass</p>
+            </div>
+            <div class="mood-card" data-station="arabic_energy">
+              <div class="mood-card-bg arabic-bg"></div>
+              <span class="mood-emoji">🇪🇬</span>
+              <h4 class="mood-name" data-i18n="station_arabic">Arabic Energy</h4>
+              <p class="mood-desc" data-i18n="station_arabic_desc">Wegz, Pablo &amp; Trap</p>
+            </div>
+            <div class="mood-card" data-station="edm">
+              <div class="mood-card-bg edm-bg"></div>
+              <span class="mood-emoji">⚡</span>
+              <h4 class="mood-name" data-i18n="station_edm">EDM Festival</h4>
+              <p class="mood-desc" data-i18n="station_edm_desc">Peak energy drops</p>
+            </div>
+            <div class="mood-card" data-station="chill">
+              <div class="mood-card-bg chill-bg"></div>
+              <span class="mood-emoji">🌙</span>
+              <h4 class="mood-name" data-i18n="station_chill">Late Night Chill</h4>
+              <p class="mood-desc" data-i18n="station_chill_desc">Relax, Lo-Fi &amp; Study</p>
+            </div>
+            <div class="mood-card" data-station="running">
+              <div class="mood-card-bg run-bg"></div>
+              <span class="mood-emoji">🏎️</span>
+              <h4 class="mood-name" data-i18n="station_running">Running 150+ BPM</h4>
+              <p class="mood-desc" data-i18n="station_running_desc">Fast cardio cadence</p>
+            </div>
+            <div class="mood-card" data-station="acoustic">
+              <div class="mood-card-bg acoustic-bg"></div>
+              <span class="mood-emoji">☕</span>
+              <h4 class="mood-name" data-i18n="station_acoustic">Coffee Acoustic</h4>
+              <p class="mood-desc" data-i18n="station_acoustic_desc">Serene acoustic calm</p>
+            </div>
+          </div>
+        </div>
 
-          <!-- Main Controls -->
-          <div class="controls">
-            <button class="ctrl-btn ctrl-btn--sm" id="btn-shuffle" aria-label="Shuffle" title="Shuffle">
-              <span class="ctrl-icon">🔀</span>
+        <!-- Category Filter Pills -->
+        <div class="filter-chips-scroll">
+          <button class="filter-chip active" data-filter="all" data-i18n="chip_all">🔥 All (60+)</button>
+          <button class="filter-chip" data-filter="gym" data-i18n="chip_gym">🏋️ Gym &amp; Workout</button>
+          <button class="filter-chip" data-filter="arabic" data-i18n="chip_arabic">🇪🇬 Arabic Hits</button>
+          <button class="filter-chip" data-filter="global" data-i18n="chip_global">🌍 Global Hits</button>
+          <button class="filter-chip" data-filter="local" data-i18n="chip_local">💾 Local / Offline</button>
+        </div>
+
+        <!-- Section Title & Controls -->
+        <div class="section-header">
+          <div>
+            <h3 class="section-title" id="home-section-title">All Tracks</h3>
+            <span class="section-count" id="home-track-count">Loading…</span>
+          </div>
+          <div class="section-header-actions">
+            <button class="btn-text-icon" id="btn-sort-toggle" title="Sort Order">⇅ Sort</button>
+          </div>
+        </div>
+
+        <!-- Tracks List -->
+        <div class="track-list" id="home-track-list">
+          <!-- Rendered dynamically -->
+        </div>
+
+      </section>
+
+      <!-- ==================== VIEW 2: SEARCH & STREAMING API ==================== -->
+      <section class="tab-view" id="view-search">
+
+        <div class="search-box-wrapper">
+          <div class="search-input-box">
+            <span class="search-icon">🔍</span>
+            <input 
+              type="search" 
+              id="search-input" 
+              class="search-input" 
+              placeholder="Search any English or Arabic song, artist..." 
+              autocomplete="off"
+              dir="auto"
+              data-i18n-placeholder="search_placeholder"
+            >
+            <button class="voice-search-btn" id="btn-voice-search" title="Voice Search" aria-label="Voice Search">🎙️</button>
+            <button class="search-clear-btn" id="search-clear-btn" style="display: none;">✕</button>
+            <div class="search-spinner" id="search-spinner" style="display: none;"></div>
+          </div>
+        </div>
+
+        <!-- Search Source Switcher & API Info -->
+        <div class="search-meta-bar">
+          <div class="api-status-badge">
+            <span class="api-dot"></span>
+            <span>Audius Fast Stream Engine (Free & Unlimited)</span>
+          </div>
+        </div>
+
+        <!-- Quick Trending Suggestions Tags -->
+        <div class="quick-tags-section">
+          <span class="quick-tags-label">Quick Search:</span>
+          <div class="quick-tags-scroll">
+            <button class="tag-pill" data-query="gym phonk">⚡ Gym Phonk</button>
+            <button class="tag-pill" data-query="workout motivation">💪 Workout Motivation</button>
+            <button class="tag-pill" data-query="عمرو دياب">🇪🇬 عمرو دياب</button>
+            <button class="tag-pill" data-query="ويجز">🔥 ويجز</button>
+            <button class="tag-pill" data-query="hardstyle gym">💥 Hardstyle / Zyzz</button>
+            <button class="tag-pill" data-query="arabic remix">🎧 Arabic Remix</button>
+            <button class="tag-pill" data-query="bass boosted car">🔊 Bass Boosted</button>
+            <button class="tag-pill" data-query="chill lofi beats">🌙 Chill Lo-Fi</button>
+          </div>
+        </div>
+
+        <!-- Search Results Count / Header -->
+        <div class="section-header" id="search-results-header" style="display: none;">
+          <div>
+            <h3 class="section-title">Results</h3>
+            <span class="section-count" id="search-results-count">0 found</span>
+          </div>
+        </div>
+
+        <!-- Search Results List -->
+        <div class="track-list" id="search-results-list">
+          <div class="empty-search-state">
+            <div class="empty-search-icon">🎧</div>
+            <h4>Search Millions of Songs</h4>
+            <p>Type any song name, Egyptian artist, or tap a workout tag above to stream instantly.</p>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ==================== VIEW 3: LIBRARY & PLAYLISTS ==================== -->
+      <section class="tab-view" id="view-library">
+
+        <div class="library-header">
+          <div>
+            <h2 class="library-title">Your Playlists</h2>
+            <p class="library-subtitle">Custom mixes, favorites & offline music</p>
+          </div>
+          <div class="library-top-actions">
+            <button class="btn btn-glass btn-sm" id="btn-upload-music-modal">
+              <span>📥</span> Import MP3
             </button>
-            <button class="ctrl-btn ctrl-btn--md" id="btn-prev" aria-label="Previous" title="Previous">
-              <span class="ctrl-icon">⏮</span>
+            <button class="btn btn-primary btn-sm" id="btn-create-playlist-modal">
+              <span>➕</span> New Playlist
             </button>
-            <button class="ctrl-btn ctrl-btn--lg" id="btn-play" aria-label="Play/Pause" title="Play">
-              <span class="ctrl-icon">▶</span>
-            </button>
-            <button class="ctrl-btn ctrl-btn--md" id="btn-next" aria-label="Next" title="Next">
-              <span class="ctrl-icon">⏭</span>
-            </button>
-            <button class="ctrl-btn ctrl-btn--sm" id="btn-repeat" aria-label="Repeat" title="Repeat">
-              <span class="ctrl-icon">🔁</span>
+          </div>
+        </div>
+
+        <!-- Recently Played Strip -->
+        <div class="recent-played-section" id="recent-played-section" style="display: none;">
+          <div class="section-header">
+            <h3 class="section-title">Recently Played</h3>
+            <span class="section-count" id="recent-played-count">0 tracks</span>
+          </div>
+          <div class="recent-played-scroll" id="recent-played-scroll">
+            <!-- Injected dynamically -->
+          </div>
+        </div>
+
+        <!-- Smart Playlists Carousel / Grid -->
+        <div class="smart-playlists-grid">
+
+          <!-- Gym Beast Mode -->
+          <div class="smart-card gym-card" data-playlist="smart_gym">
+            <div class="smart-card__icon">🏋️‍♂️</div>
+            <div class="smart-card__body">
+              <h4 class="smart-card__title">Gym Beast Mode</h4>
+              <p class="smart-card__count" id="count-smart-gym">Curated Mix</p>
+            </div>
+            <button class="smart-card__play" data-play-smart="smart_gym" title="Play">▶</button>
+          </div>
+
+          <!-- Liked Songs -->
+          <div class="smart-card liked-card" data-playlist="smart_favorites">
+            <div class="smart-card__icon">❤️</div>
+            <div class="smart-card__body">
+              <h4 class="smart-card__title">Liked Songs</h4>
+              <p class="smart-card__count" id="count-smart-favorites">0 songs</p>
+            </div>
+            <button class="smart-card__play" data-play-smart="smart_favorites" title="Play">▶</button>
+          </div>
+
+          <!-- Local Offline Files -->
+          <div class="smart-card local-card" data-playlist="smart_local">
+            <div class="smart-card__icon">📱</div>
+            <div class="smart-card__body">
+              <h4 class="smart-card__title">Local Files</h4>
+              <p class="smart-card__count" id="count-smart-local">19 tracks</p>
+            </div>
+            <button class="smart-card__play" data-play-smart="smart_local" title="Play">▶</button>
+          </div>
+
+          <!-- Downloaded to IndexedDB -->
+          <div class="smart-card downloaded-card" data-playlist="smart_downloaded">
+            <div class="smart-card__icon">⬇️</div>
+            <div class="smart-card__body">
+              <h4 class="smart-card__title">Saved Offline</h4>
+              <p class="smart-card__count" id="count-smart-downloaded">0 saved</p>
+            </div>
+            <button class="smart-card__play" data-play-smart="smart_downloaded" title="Play">▶</button>
+          </div>
+
+        </div>
+
+        <!-- Batch Download All Favorites Banner -->
+        <div class="batch-download-banner" id="batch-download-banner">
+          <div class="batch-download-info">
+            <span class="batch-icon">💾</span>
+            <div>
+              <h4 data-i18n="offline_pack_title">Offline Workout Pack</h4>
+              <p data-i18n="offline_pack_desc">Download all your favorite tracks with one tap for zero-internet flights and workouts</p>
+            </div>
+          </div>
+          <button class="btn btn-primary btn-sm" id="btn-download-all-favs" data-i18n="download_all_btn">
+            ⬇️ Download All
+          </button>
+        </div>
+
+        <!-- Custom User Playlists Section -->
+        <div class="section-header" style="margin-top: 28px;">
+          <h3 class="section-title">Custom Playlists</h3>
+        </div>
+
+        <div class="custom-playlists-list" id="custom-playlists-container">
+          <!-- Rendered dynamically -->
+        </div>
+
+        <!-- Backup & Restore helper -->
+        <div class="library-footer-tools">
+          <button class="btn-link" id="btn-export-playlists">📥 Export Backup</button>
+          <button class="btn-link" id="btn-import-playlists">📤 Import Backup</button>
+          <input type="file" id="file-import-playlists" accept=".json" style="display: none;">
+        </div>
+
+      </section>
+
+      <!-- ==================== VIEW 4: DEDICATED GYM MODE HUD ==================== -->
+      <section class="tab-view" id="view-gym">
+
+        <div class="gym-hud">
+
+          <!-- Gym Header -->
+          <div class="gym-hud__top">
+            <span class="gym-mode-badge">⚡ GYM WORKOUT HUD</span>
+            <button class="wake-lock-toggle" id="btn-wake-lock" title="Keep screen awake during workout">
+              <span class="wake-lock-icon">👁️</span>
+              <span class="wake-lock-text">Screen Awake</span>
             </button>
           </div>
 
-          <!-- Volume -->
-          <div class="volume-section">
-            <span class="volume-section__icon" id="volume-icon">🔊</span>
-            <div class="volume-slider" id="volume-slider">
-              <div class="volume-slider__fill" id="volume-fill" style="width: 80%"></div>
+          <!-- Workout Animated Cover with Pulse -->
+          <div class="gym-art-wrapper">
+            <div class="gym-pulse-aura" id="gym-pulse-aura"></div>
+            <img class="gym-cover-art" id="gym-cover-art" src="assets/default-cover.png" alt="Cover">
+            <div class="gym-speed-chip" id="gym-speed-chip">1.0x SPEED</div>
+          </div>
+
+          <!-- Track Info (High-Contrast Bold) -->
+          <div class="gym-track-info">
+            <h2 class="gym-track-title" id="gym-track-title" dir="auto">No Track Selected</h2>
+            <p class="gym-track-artist" id="gym-track-artist" dir="auto">—</p>
+            <div class="gym-gapless-badge" id="gym-gapless-status">
+              ⚡ 0ms Gapless: Next track buffered
+            </div>
+          </div>
+
+          <!-- Live Workout Dashboard Bar -->
+          <div class="gym-stats-dashboard">
+            <div class="gym-stat-item">
+              <span class="gym-stat-icon">⏱️</span>
+              <div class="gym-stat-info">
+                <span class="gym-stat-val" id="gym-session-time">00:00</span>
+                <span class="gym-stat-lbl" data-i18n="session_time">Session</span>
+              </div>
+            </div>
+
+            <div class="gym-stat-item">
+              <span class="gym-stat-icon">🔥</span>
+              <div class="gym-stat-info">
+                <span class="gym-stat-val" id="gym-calories-val">0</span>
+                <span class="gym-stat-lbl" data-i18n="calories_lbl">kcal</span>
+              </div>
+            </div>
+
+            <div class="gym-stat-item gym-stat-item--sets" id="btn-gym-add-set" title="Tap to add a set">
+              <span class="gym-stat-icon">🏋️‍♂️</span>
+              <div class="gym-stat-info">
+                <span class="gym-stat-val" id="gym-sets-val">1</span>
+                <span class="gym-stat-lbl" data-i18n="set_lbl">Set +1</span>
+              </div>
+            </div>
+
+            <div class="gym-stat-item">
+              <button class="voice-coach-toggle active" id="btn-gym-voice-coach" title="Toggle audio voice announcements">
+                <span class="voice-icon">🗣️</span>
+                <span class="voice-text" id="voice-coach-text" data-i18n="coach_on">Coach ON</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Giant Gym Playback Controls -->
+          <div class="gym-controls-primary">
+            <!-- 15s Rewind -->
+            <button class="gym-btn-skip" id="gym-btn-skip-back" aria-label="Skip back 15s" title="Skip back 15s">
+              <span class="gym-skip-num">15</span>
+              <span class="gym-skip-arrow">↺</span>
+            </button>
+
+            <!-- Previous -->
+            <button class="gym-btn-nav" id="gym-btn-prev" aria-label="Previous">
+              ⏮
+            </button>
+
+            <!-- Huge Play/Pause -->
+            <button class="gym-btn-play" id="gym-btn-play" aria-label="Play / Pause">
+              <span class="gym-play-icon" id="gym-play-icon">▶</span>
+            </button>
+
+            <!-- Next -->
+            <button class="gym-btn-nav" id="gym-btn-next" aria-label="Next">
+              ⏭
+            </button>
+
+            <!-- 15s Forward -->
+            <button class="gym-btn-skip" id="gym-btn-skip-forward" aria-label="Skip forward 15s" title="Skip forward 15s">
+              <span class="gym-skip-num">15</span>
+              <span class="gym-skip-arrow">↻</span>
+            </button>
+          </div>
+
+          <!-- Gym Workout Speed Selectors -->
+          <div class="gym-speed-bar">
+            <span class="speed-label">TEMPO:</span>
+            <button class="speed-btn active" data-speed="1.0">1.0x Normal</button>
+            <button class="speed-btn" data-speed="1.2">1.2x Cardio</button>
+            <button class="speed-btn" data-speed="1.5">1.5x Beast</button>
+          </div>
+
+          <!-- Workout Rest & Interval Timer Widget -->
+          <div class="gym-timer-card" id="gym-timer-card">
+            <div class="gym-timer-header">
+              <span class="gym-timer-title">⏱️ REST & SET TIMER</span>
+              <span class="gym-timer-mode" id="gym-timer-mode-label">Rest Countdown</span>
+            </div>
+            
+            <div class="gym-timer-display-box">
+              <div class="gym-timer-circle" id="gym-timer-circle">
+                <span class="gym-timer-time" id="gym-timer-time">00:45</span>
+                <span class="gym-timer-sub" id="gym-timer-sub">REST TIME</span>
+              </div>
+            </div>
+            
+            <!-- Quick Rest Duration Presets -->
+            <div class="gym-timer-presets">
+              <button class="timer-pill" data-seconds="30">30s</button>
+              <button class="timer-pill active" data-seconds="45">45s</button>
+              <button class="timer-pill" data-seconds="60">60s</button>
+              <button class="timer-pill" data-seconds="90">90s</button>
+              <button class="timer-pill" data-seconds="120">2m</button>
+              <button class="timer-pill timer-pill--tabata" id="btn-tabata-mode">Tabata</button>
+            </div>
+            
+            <div class="gym-timer-actions">
+              <button class="btn btn-primary btn-sm" id="btn-timer-start">▶ Start Rest</button>
+              <button class="btn btn-glass btn-sm" id="btn-timer-reset">↺ Reset</button>
+              <button class="btn-text-icon" id="btn-timer-sound-toggle" title="Sound Bell">🔔 Chime ON</button>
             </div>
           </div>
 
         </div>
-      </div>
-    </div>
+
+      </section>
+
+    </main>
 
   </div>
 
-  <!-- ═══════ Mini Player ═══════ -->
+  <!-- ==================== PERSISTENT MINI PLAYER ==================== -->
   <div class="mini-player" id="mini-player">
+    <!-- Mini Progress bar -->
     <div class="mini-player__progress">
+      <div class="mini-player__progress-buffered" id="mini-buffered-fill"></div>
       <div class="mini-player__progress-fill" id="mini-progress-fill"></div>
     </div>
-    <div class="mini-player__content">
-      <img class="mini-player__cover" id="mini-cover" src="assets/default-cover.png" alt="Cover" loading="lazy">
-      <div class="mini-player__info" id="mini-info">
-        <div class="mini-player__title" id="mini-title">No Track</div>
-        <div class="mini-player__artist" id="mini-artist">—</div>
+
+    <div class="mini-player__body">
+      <img class="mini-player__cover" id="mini-cover" src="assets/default-cover.png" alt="Cover">
+      
+      <div class="mini-player__info" id="mini-info-tap">
+        <div class="mini-player__title" id="mini-title" dir="auto">Select a track</div>
+        <div class="mini-player__meta">
+          <span class="mini-player__artist" id="mini-artist" dir="auto">—</span>
+          <span class="mini-player__gapless-pill" id="mini-gapless-pill">0ms</span>
+        </div>
       </div>
-      <div class="mini-player__controls">
-        <button class="mini-ctrl" id="mini-btn-play" aria-label="Play/Pause">▶</button>
-        <button class="mini-ctrl" id="mini-btn-next" aria-label="Next">⏭</button>
+
+      <div class="mini-player__actions">
+        <button class="mini-btn-like" id="mini-btn-like" aria-label="Favorite">🤍</button>
+        <button class="mini-btn-play" id="mini-btn-play" aria-label="Play/Pause">▶</button>
+        <button class="mini-btn-next" id="mini-btn-next" aria-label="Next">⏭</button>
       </div>
     </div>
   </div>
 
-  <!-- App Script -->
+  <!-- ==================== BOTTOM NAVIGATION BAR ==================== -->
+  <nav class="bottom-nav" id="bottom-nav">
+    <button class="nav-item active" data-tab="home">
+      <span class="nav-icon">🏠</span>
+      <span class="nav-label" data-i18n="nav_home">Home</span>
+    </button>
+
+    <button class="nav-item" data-tab="search">
+      <span class="nav-icon">🔍</span>
+      <span class="nav-label" data-i18n="nav_search">Search</span>
+    </button>
+
+    <button class="nav-item" data-tab="library">
+      <span class="nav-icon">📚</span>
+      <span class="nav-label" data-i18n="nav_library">Playlists</span>
+    </button>
+
+    <button class="nav-item nav-item--gym" data-tab="gym">
+      <span class="nav-icon">⚡</span>
+      <span class="nav-label" data-i18n="nav_gym">Gym Mode</span>
+    </button>
+  </nav>
+
+  <!-- ==================== FULL NOW PLAYING MODAL ==================== -->
+  <div class="full-player-modal" id="full-player-modal" aria-hidden="true">
+    <div class="full-player-backdrop" id="full-player-backdrop"></div>
+
+    <div class="full-player-sheet">
+      <!-- Drag handle -->
+      <div class="sheet-handle" id="sheet-handle"></div>
+
+      <!-- Top Header -->
+      <div class="full-player-header">
+        <button class="icon-btn-lg" id="btn-minimize-player" aria-label="Minimize player">⌄</button>
+        <div class="full-header-info">
+          <span class="full-header-subtitle" data-i18n="now_playing">NOW PLAYING</span>
+          <div class="full-header-badges">
+            <span class="full-header-category" id="full-track-category">VIBE Engine</span>
+            <span class="spatial-8d-pill" id="pill-8d-spatial" style="display: none;">🎧 8D Orbit</span>
+          </div>
+        </div>
+        <button class="icon-btn-lg" id="btn-full-options" aria-label="Track options">⋯</button>
+      </div>
+
+      <!-- Artwork / Vinyl Container -->
+      <div class="full-art-container">
+        <div class="vinyl-disc" id="vinyl-disc"></div>
+        <div class="full-art-wrapper" id="full-art-wrapper">
+          <img class="full-art-img" id="full-cover-art" src="assets/default-cover.png" alt="Album Cover">
+          <div class="heart-pulse-overlay" id="heart-pulse-overlay">❤️</div>
+        </div>
+      </div>
+
+      <!-- Live Soundwave Visualizer Bars -->
+      <div class="visualizer-container" id="visualizer-container" title="Tap to switch visualizer style">
+        <span class="v-bar"></span>
+        <span class="v-bar"></span>
+        <span class="v-bar"></span>
+        <span class="v-bar"></span>
+        <span class="v-bar"></span>
+        <span class="v-bar"></span>
+        <span class="v-bar"></span>
+        <span class="v-bar"></span>
+        <span class="v-bar"></span>
+        <span class="v-bar"></span>
+        <span class="v-bar"></span>
+        <span class="v-bar"></span>
+        <span class="v-bar"></span>
+        <span class="v-bar"></span>
+        <span class="v-bar"></span>
+        <span class="v-bar"></span>
+      </div>
+
+      <!-- Track Info & Like Action -->
+      <div class="full-track-details">
+        <div class="full-track-meta">
+          <h2 class="full-track-title" id="full-track-title" dir="auto">No Track Selected</h2>
+          <p class="full-track-artist" id="full-track-artist" dir="auto">—</p>
+        </div>
+        <button class="btn-heart-lg" id="full-btn-like" aria-label="Like song">🤍</button>
+      </div>
+
+      <!-- Progress Bar & Timestamps -->
+      <div class="full-progress-container">
+        <div class="full-progress-bar" id="full-progress-bar">
+          <div class="full-progress-buffered" id="full-progress-buffered"></div>
+          <div class="full-progress-fill" id="full-progress-fill"></div>
+          <div class="full-progress-thumb" id="full-progress-thumb"></div>
+        </div>
+        <div class="full-progress-times">
+          <span id="full-time-current">0:00</span>
+          <span class="gapless-chip" id="full-gapless-chip">⚡ 0ms Gapless Ready</span>
+          <span id="full-time-duration">0:00</span>
+        </div>
+      </div>
+
+      <!-- Primary Playback Controls -->
+      <div class="full-controls-row">
+        <!-- Shuffle -->
+        <button class="ctrl-btn-sm" id="full-btn-shuffle" aria-label="Shuffle" title="Shuffle">
+          🔀
+        </button>
+
+        <!-- Previous -->
+        <button class="ctrl-btn-md" id="full-btn-prev" aria-label="Previous track">
+          ⏮
+        </button>
+
+        <!-- Big Play/Pause -->
+        <button class="ctrl-btn-play-lg" id="full-btn-play" aria-label="Play/Pause">
+          <span id="full-play-icon">▶</span>
+        </button>
+
+        <!-- Next -->
+        <button class="ctrl-btn-md" id="full-btn-next" aria-label="Next track">
+          ⏭
+        </button>
+
+        <!-- Repeat -->
+        <button class="ctrl-btn-sm" id="full-btn-repeat" aria-label="Repeat" title="Repeat">
+          🔁
+        </button>
+      </div>
+
+      <!-- Secondary Utility Row -->
+      <div class="full-utility-row">
+        <button class="util-btn" id="full-btn-add-playlist" title="Add to Playlist">
+          <span>➕</span> <span data-i18n="btn_playlist">Playlist</span>
+        </button>
+        <button class="util-btn" id="full-btn-share" title="Share & QR Code">
+          <span>🔗</span> <span data-i18n="btn_share">Share</span>
+        </button>
+        <button class="util-btn" id="full-btn-download" title="Save Offline in IndexedDB">
+          <span id="download-icon">⬇️</span> <span id="download-label" data-i18n="btn_save_offline">Save Offline</span>
+        </button>
+        <button class="util-btn" id="full-btn-speed" title="Playback Speed">
+          <span id="full-speed-label">1.0x</span>
+        </button>
+        <button class="util-btn" id="full-btn-sleep" title="Sleep Timer">
+          ⏱️
+        </button>
+      </div>
+
+      <!-- Pro Audio & Studio Tools Row -->
+      <div class="full-pro-row">
+        <button class="pro-btn" id="full-btn-eq" title="Equalizer & Bass Boost">
+          <span>🎚️</span> <span data-i18n="btn_eq">EQ &amp; Bass</span>
+        </button>
+        <button class="pro-btn" id="full-btn-8d" title="8D Spatial Surround Sound">
+          <span>🎧</span> <span id="label-8d-btn" data-i18n="btn_8d">8D Audio</span>
+        </button>
+        <button class="pro-btn" id="full-btn-lyrics" title="Sing-Along & Lyrics">
+          <span>🎤</span> <span data-i18n="btn_lyrics">Lyrics</span>
+        </button>
+        <button class="pro-btn" id="full-btn-queue" title="Up Next Queue">
+          <span>📋</span> <span data-i18n="btn_queue">Queue</span>
+        </button>
+      </div>
+
+      <!-- Volume Slider -->
+      <div class="full-volume-row">
+        <span class="vol-icon" id="vol-icon">🔊</span>
+        <div class="vol-slider" id="vol-slider">
+          <div class="vol-fill" id="vol-fill" style="width: 80%;"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== PLAYLIST DETAIL MODAL ==================== -->
+  <div class="app-modal" id="modal-playlist-view" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal="modal-playlist-view"></div>
+    <div class="modal-content modal-content--full">
+      <div class="modal-header">
+        <button class="icon-btn" data-close-modal="modal-playlist-view">←</button>
+        <h3 class="modal-title" id="modal-playlist-title">Playlist</h3>
+        <button class="icon-btn text-danger" id="btn-delete-active-playlist" style="display:none;" title="Delete Playlist">🗑️</button>
+      </div>
+      <div class="modal-playlist-hero">
+        <div class="modal-playlist-icon" id="modal-playlist-icon">🎵</div>
+        <div class="modal-playlist-info">
+          <h2 id="modal-playlist-heading">Playlist Name</h2>
+          <p id="modal-playlist-meta">0 tracks</p>
+          <button class="btn btn-primary btn-sm" id="btn-modal-playlist-play">
+            ▶ Play All
+          </button>
+          <button class="btn btn-glass btn-sm" id="btn-modal-playlist-shuffle">
+            🔀 Shuffle
+          </button>
+        </div>
+      </div>
+      <div class="track-list" id="modal-playlist-tracks">
+        <!-- Tracks -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== CREATE PLAYLIST MODAL ==================== -->
+  <div class="app-modal" id="modal-create-playlist" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal="modal-create-playlist"></div>
+    <div class="modal-content modal-content--dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">Create New Playlist</h3>
+        <button class="icon-btn" data-close-modal="modal-create-playlist">✕</button>
+      </div>
+      <div class="modal-body">
+        <label class="form-label" for="input-playlist-name">Playlist Name</label>
+        <input type="text" id="input-playlist-name" class="form-input" placeholder="e.g. Gym Beast Mode 2026, Night Drive..." maxlength="40">
+        
+        <label class="form-label" style="margin-top: 14px;">Select Emoji / Icon</label>
+        <div class="emoji-selector" id="emoji-selector">
+          <button class="emoji-opt active" data-emoji="🏋️‍♂️">🏋️‍♂️</button>
+          <button class="emoji-opt" data-emoji="⚡">⚡</button>
+          <button class="emoji-opt" data-emoji="🔥">🔥</button>
+          <button class="emoji-opt" data-emoji="🎧">🎧</button>
+          <button class="emoji-opt" data-emoji="🇪🇬">🇪🇬</button>
+          <button class="emoji-opt" data-emoji="🌙">🌙</button>
+          <button class="emoji-opt" data-emoji="🚗">🚗</button>
+          <button class="emoji-opt" data-emoji="❤️">❤️</button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-glass" data-close-modal="modal-create-playlist">Cancel</button>
+        <button class="btn btn-primary" id="btn-confirm-create-playlist">Create Playlist</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== ADD TO PLAYLIST MODAL ==================== -->
+  <div class="app-modal" id="modal-add-to-playlist" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal="modal-add-to-playlist"></div>
+    <div class="modal-content modal-content--dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">Add to Playlist</h3>
+        <button class="icon-btn" data-close-modal="modal-add-to-playlist">✕</button>
+      </div>
+      <div class="modal-body">
+        <p class="target-track-label" id="target-track-label">Select playlists:</p>
+        <div class="playlists-checklist" id="playlists-checklist">
+          <!-- Checkbox items injected dynamically -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-glass" data-close-modal="modal-add-to-playlist">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SLEEP TIMER MODAL ==================== -->
+  <div class="app-modal" id="modal-sleep-timer" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal="modal-sleep-timer"></div>
+    <div class="modal-content modal-content--dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">⏱️ Sleep Timer</h3>
+        <button class="icon-btn" data-close-modal="modal-sleep-timer">✕</button>
+      </div>
+      <div class="modal-body">
+        <p class="sleep-status-text" id="sleep-status-text">Audio will stop automatically when the timer expires.</p>
+        <div class="sleep-options-list">
+          <button class="sleep-option-btn" data-minutes="15">15 Minutes</button>
+          <button class="sleep-option-btn" data-minutes="30">30 Minutes</button>
+          <button class="sleep-option-btn" data-minutes="45">45 Minutes</button>
+          <button class="sleep-option-btn" data-minutes="60">1 Hour</button>
+          <button class="sleep-option-btn text-danger" data-minutes="0">Turn Off Timer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== EQUALIZER & BASS BOOST MODAL ==================== -->
+  <div class="app-modal" id="modal-equalizer" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal="modal-equalizer"></div>
+    <div class="modal-content modal-content--dialog modal-content--eq">
+      <div class="modal-header">
+        <h3 class="modal-title">🎚️ Studio Equalizer &amp; Bass</h3>
+        <button class="icon-btn" data-close-modal="modal-equalizer">✕</button>
+      </div>
+      <div class="modal-body">
+        <!-- EQ Presets -->
+        <div class="eq-presets-scroll">
+          <button class="eq-preset-chip active" data-preset="bass">🔥 Gym Bass</button>
+          <button class="eq-preset-chip" data-preset="vocal">🎤 Vocal Boost</button>
+          <button class="eq-preset-chip" data-preset="electronic">⚡ Electronic</button>
+          <button class="eq-preset-chip" data-preset="flat">🎧 Flat</button>
+        </div>
+
+        <!-- 5-Band Slider Sliders -->
+        <div class="eq-sliders-rack">
+          <div class="eq-band">
+            <span class="eq-gain-val" id="eq-val-0">+0dB</span>
+            <input type="range" class="eq-slider" id="eq-band-0" min="-12" max="12" step="1" value="0" orient="vertical">
+            <span class="eq-freq-label">60Hz</span>
+          </div>
+          <div class="eq-band">
+            <span class="eq-gain-val" id="eq-val-1">+0dB</span>
+            <input type="range" class="eq-slider" id="eq-band-1" min="-12" max="12" step="1" value="0" orient="vertical">
+            <span class="eq-freq-label">250Hz</span>
+          </div>
+          <div class="eq-band">
+            <span class="eq-gain-val" id="eq-val-2">+0dB</span>
+            <input type="range" class="eq-slider" id="eq-band-2" min="-12" max="12" step="1" value="0" orient="vertical">
+            <span class="eq-freq-label">1kHz</span>
+          </div>
+          <div class="eq-band">
+            <span class="eq-gain-val" id="eq-val-3">+0dB</span>
+            <input type="range" class="eq-slider" id="eq-band-3" min="-12" max="12" step="1" value="0" orient="vertical">
+            <span class="eq-freq-label">4kHz</span>
+          </div>
+          <div class="eq-band">
+            <span class="eq-gain-val" id="eq-val-4">+0dB</span>
+            <input type="range" class="eq-slider" id="eq-band-4" min="-12" max="12" step="1" value="0" orient="vertical">
+            <span class="eq-freq-label">14kHz</span>
+          </div>
+        </div>
+
+        <!-- Volume Booster (> 100%) -->
+        <div class="eq-addon-section">
+          <div class="addon-header">
+            <span>🔊 Volume Boost (Studio Gain)</span>
+            <span class="addon-badge" id="vol-boost-val">100%</span>
+          </div>
+          <input type="range" class="horizontal-slider" id="slider-vol-boost" min="100" max="200" step="5" value="100">
+        </div>
+
+        <!-- DJ Crossfade -->
+        <div class="eq-addon-section">
+          <div class="addon-header">
+            <span>🔀 DJ Crossfade Transitions</span>
+            <span class="addon-badge" id="crossfade-val">0s (Gapless)</span>
+          </div>
+          <div class="crossfade-selector">
+            <button class="crossfade-btn active" data-crossfade="0">0s (0ms)</button>
+            <button class="crossfade-btn" data-crossfade="2">2s Smooth</button>
+            <button class="crossfade-btn" data-crossfade="4">4s DJ</button>
+            <button class="crossfade-btn" data-crossfade="6">6s Mix</button>
+          </div>
+        </div>
+
+        <!-- 8D Spatial Audio 360° Orbit -->
+        <div class="eq-addon-section">
+          <div class="addon-header">
+            <span data-i18n="spatial_8d_title">🎧 8D Spatial Audio (360° Orbit)</span>
+            <button class="switch-pill-btn" id="btn-toggle-8d">OFF</button>
+          </div>
+          <p class="addon-subtext" data-i18n="spatial_subtext">Wear headphones to experience sound rotating 360° around your head.</p>
+          <div class="spatial-speed-selector" id="spatial-speeds" style="display: none;">
+            <button class="spatial-speed-btn" data-speed="12">🌌 12s Slow</button>
+            <button class="spatial-speed-btn active" data-speed="8">🌀 8s Normal</button>
+            <button class="spatial-speed-btn" data-speed="4">⚡ 4s Beast</button>
+          </div>
+        </div>
+
+        <!-- Acoustic Room Ambience / Reverb -->
+        <div class="eq-addon-section">
+          <div class="addon-header">
+            <span data-i18n="reverb_title">🏟️ Acoustic Space (Reverb)</span>
+            <span class="addon-badge" id="reverb-val">Studio (Flat)</span>
+          </div>
+          <div class="reverb-presets-grid">
+            <button class="reverb-btn active" data-reverb="studio">🎧 Studio</button>
+            <button class="reverb-btn" data-reverb="club">🏟️ Club Arena</button>
+            <button class="reverb-btn" data-reverb="gym">🏋️ Gym Hall</button>
+            <button class="reverb-btn" data-reverb="concert">🎷 Concert</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== UP NEXT / QUEUE MODAL ==================== -->
+  <div class="app-modal" id="modal-queue" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal="modal-queue"></div>
+    <div class="modal-content modal-content--full">
+      <div class="modal-header">
+        <button class="icon-btn" data-close-modal="modal-queue">←</button>
+        <h3 class="modal-title" data-i18n="queue_title">Up Next Queue</h3>
+        <button class="btn-text-icon" id="btn-clear-queue" data-i18n="clear_queue">Clear</button>
+      </div>
+
+      <!-- Infinite Smart Radio Toggle Bar -->
+      <div class="queue-toolbar">
+        <button class="infinite-toggle-btn active" id="btn-toggle-infinite" title="Auto-play similar music when queue finishes">
+          <span>♾️</span> <span id="label-infinite-radio" data-i18n="infinite_radio">Auto-Play Similar: ON</span>
+        </button>
+      </div>
+
+      <div class="queue-current-card" id="queue-current-card">
+        <span class="queue-now-label">NOW PLAYING</span>
+        <div class="queue-item playing">
+          <img class="queue-item-art" id="queue-now-art" src="assets/default-cover.png" alt="Cover">
+          <div class="queue-item-info">
+            <div class="queue-item-title" id="queue-now-title">—</div>
+            <div class="queue-item-artist" id="queue-now-artist">—</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-header" style="margin-top: 18px;">
+        <h3 class="section-title">Coming Up</h3>
+        <span class="section-count" id="queue-count">0 tracks</span>
+      </div>
+
+      <div class="track-list" id="queue-list">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SING-ALONG & LYRICS MODAL ==================== -->
+  <div class="app-modal" id="modal-lyrics" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal="modal-lyrics"></div>
+    <div class="modal-content modal-content--full modal-content--lyrics">
+      <div class="modal-header">
+        <button class="icon-btn" data-close-modal="modal-lyrics">←</button>
+        <h3 class="modal-title">🎤 Sing-Along &amp; Lyrics</h3>
+        <button class="icon-btn" id="btn-edit-lyrics" title="Paste / Edit Lyrics">✏️</button>
+      </div>
+
+      <div class="lyrics-track-banner">
+        <img class="lyrics-track-art" id="lyrics-track-art" src="assets/default-cover.png" alt="Cover">
+        <div>
+          <h2 class="lyrics-track-title" id="lyrics-track-title">Title</h2>
+          <p class="lyrics-track-artist" id="lyrics-track-artist">Artist</p>
+        </div>
+      </div>
+
+      <div class="lyrics-container" id="lyrics-container">
+        <div class="lyrics-loading" id="lyrics-loading">Loading lyrics…</div>
+        <div class="lyrics-text" id="lyrics-text" dir="auto"></div>
+      </div>
+
+      <div class="lyrics-editor-box" id="lyrics-editor-box" style="display: none;">
+        <textarea class="form-input lyrics-textarea" id="lyrics-textarea" placeholder="Paste custom lyrics or translation here…" rows="8"></textarea>
+        <button class="btn btn-primary btn-sm" id="btn-save-custom-lyrics">Save Lyrics</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== THEMES SELECTOR MODAL ==================== -->
+  <div class="app-modal" id="modal-themes" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal="modal-themes"></div>
+    <div class="modal-content modal-content--dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">🎨 Visual Themes</h3>
+        <button class="icon-btn" data-close-modal="modal-themes">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="themes-grid">
+          <div class="theme-card active" data-theme="cyber">
+            <div class="theme-palette cyber-palette"></div>
+            <div class="theme-card-info">
+              <span class="theme-card-name">Cyber Neon</span>
+              <span class="theme-card-sub">Electric Purple &amp; Cyan</span>
+            </div>
+          </div>
+
+          <div class="theme-card" data-theme="volt">
+            <div class="theme-palette volt-palette"></div>
+            <div class="theme-card-info">
+              <span class="theme-card-name">Gym Volt</span>
+              <span class="theme-card-sub">Racing Lime &amp; Emerald</span>
+            </div>
+          </div>
+
+          <div class="theme-card" data-theme="fire">
+            <div class="theme-palette fire-palette"></div>
+            <div class="theme-card-info">
+              <span class="theme-card-name">Sunset Fire</span>
+              <span class="theme-card-sub">Flame Rose &amp; Amber</span>
+            </div>
+          </div>
+
+          <div class="theme-card" data-theme="oled">
+            <div class="theme-palette oled-palette"></div>
+            <div class="theme-card-info">
+              <span class="theme-card-name">OLED Stealth</span>
+              <span class="theme-card-sub">Pure Black Battery Saver</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== UPLOAD MUSIC MODAL ==================== -->
+  <div class="app-modal" id="modal-upload" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal="modal-upload"></div>
+    <div class="modal-content modal-content--dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">📥 Upload Your Music</h3>
+        <button class="icon-btn" data-close-modal="modal-upload">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="upload-dropzone" id="upload-dropzone">
+          <div class="dropzone-icon">📁</div>
+          <h4>Drop audio files here</h4>
+          <p>Supports MP3, M4A, FLAC, WAV &amp; AAC</p>
+          <button class="btn btn-primary btn-sm" id="btn-browse-audio-files">Browse Files</button>
+          <input type="file" id="file-audio-input" multiple accept="audio/*" style="display: none;">
+        </div>
+
+        <div class="upload-queue-list" id="upload-queue-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== TRACK OPTIONS & SHARE MODAL ==================== -->
+  <div class="app-modal" id="modal-track-options" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal="modal-track-options"></div>
+    <div class="modal-content modal-content--dialog">
+      <div class="modal-header">
+        <h3 class="modal-title" data-i18n="options_title">Track Options &amp; Share</h3>
+        <button class="icon-btn" data-close-modal="modal-track-options">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="track-options-hero">
+          <img class="track-options-art" id="options-track-art" src="assets/default-cover.png" alt="Cover">
+          <div class="track-options-meta">
+            <h4 class="track-options-title" id="options-track-title">Title</h4>
+            <p class="track-options-artist" id="options-track-artist">Artist</p>
+          </div>
+        </div>
+
+        <!-- QR Code Sharing Section -->
+        <div class="qr-share-section">
+          <div class="qr-code-box">
+            <canvas id="track-qr-canvas" width="160" height="160"></canvas>
+            <p class="qr-hint" data-i18n="scan_camera">Point mobile camera to listen immediately</p>
+          </div>
+          <div class="qr-actions">
+            <button class="btn btn-primary btn-sm w-100" id="btn-share-native">
+              <span>📤</span> <span data-i18n="share_apps">Share via Apps</span>
+            </button>
+            <button class="btn btn-glass btn-sm w-100" id="btn-copy-track-link">
+              <span>📋</span> <span data-i18n="copy_link">Copy Link</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Quick Actions List -->
+        <div class="options-actions-list">
+          <button class="option-action-item" id="opt-action-8d">
+            <span class="option-icon">🎧</span>
+            <div class="option-text">
+              <span class="option-name" data-i18n="spatial_8d_title">8D Spatial Surround</span>
+              <span class="option-desc" id="opt-8d-status">Turn 360° Orbit ON</span>
+            </div>
+          </button>
+          <button class="option-action-item" id="opt-action-queue">
+            <span class="option-icon">📋</span>
+            <div class="option-text">
+              <span class="option-name" data-i18n="play_next">Play Next in Queue</span>
+              <span class="option-desc">Insert right after current song</span>
+            </div>
+          </button>
+          <button class="option-action-item" id="opt-action-playlist">
+            <span class="option-icon">➕</span>
+            <div class="option-text">
+              <span class="option-name" data-i18n="btn_playlist">Add to Custom Playlist</span>
+              <span class="option-desc">Save to your playlist collection</span>
+            </div>
+          </button>
+          <button class="option-action-item" id="opt-action-download">
+            <span class="option-icon">⬇️</span>
+            <div class="option-text">
+              <span class="option-name" data-i18n="btn_save_offline">Save Offline</span>
+              <span class="option-desc" id="opt-download-status">Store in device IndexedDB</span>
+            </div>
+          </button>
+        </div>
+
+        <!-- Technical Audio Specs Card -->
+        <div class="audio-specs-card">
+          <div class="spec-row">
+            <span class="spec-label">Streaming Quality:</span>
+            <span class="spec-value" id="spec-quality-val">320kbps High Fidelity</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">Audio Engine:</span>
+            <span class="spec-value">VIBE Dual-Audio 0ms Gapless</span>
+          </div>
+          <div class="spec-row">
+            <span class="spec-label">Sample Rate:</span>
+            <span class="spec-value">44,100 Hz (Stereo)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Offline Standalone QR Code Library -->
+  <script src="assets/qrcode.min.js"></script>
+
+  <!-- Main JavaScript Engine -->
   <script src="app.js"></script>
 
 </body>
