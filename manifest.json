@@ -1,12 +1,13 @@
 {
-  "name": "VIBE 2.0 Music Player",
+  "name": "VIBE 2.0 Music & Gym Player",
   "short_name": "VIBE",
-  "description": "Ultra-fast offline & streaming music player with Gym Mode & smart playlists",
+  "description": "Ultra-fast offline & streaming music player with Gym Mode, background playback & smart caching",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#0a0a0f",
-  "theme_color": "#0a0a0f",
-  "orientation": "portrait-primary",
+  "background_color": "#08080e",
+  "theme_color": "#08080e",
+  "orientation": "any",
+  "categories": ["music", "entertainment", "fitness"],
   "icons": [
     {
       "src": "assets/default-cover.png",
@@ -25,7 +26,7 @@
     {
       "name": "Search & Stream",
       "short_name": "Search",
-      "description": "Search English & Arabic songs",
+      "description": "Search English & Arabic original songs",
       "url": "./#search"
     },
     {

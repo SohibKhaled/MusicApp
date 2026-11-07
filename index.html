@@ -19,13 +19,223 @@
   <link rel="manifest" href="manifest.json">
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=9.0">
 
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
   <link rel="apple-touch-icon" href="assets/default-cover.png">
 </head>
 <body>
+      <!-- ==================== HIGH-PRECISION SVG VECTOR SPRITE (Symbols with viewBox & Protected Styles) ==================== -->
+  <svg id="vibe-svg-sprite" style="display:none;" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <!-- Core Playback Controls (Round-capped, optically balanced) -->
+      <symbol id="icon-play" viewBox="0 0 24 24">
+        <path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11-6.86a1 1 0 0 0 0-1.72l-11-6.86A1 1 0 0 0 8 5.14z" fill="currentColor" stroke="none" style="fill:currentColor;stroke:none;"></path>
+      </symbol>
+      <symbol id="icon-pause" viewBox="0 0 24 24">
+        <rect x="6" y="4" width="4" height="16" rx="2" fill="currentColor" stroke="none" style="fill:currentColor;stroke:none;"></rect>
+        <rect x="14" y="4" width="4" height="16" rx="2" fill="currentColor" stroke="none" style="fill:currentColor;stroke:none;"></rect>
+      </symbol>
+      <symbol id="icon-prev" viewBox="0 0 24 24">
+        <polygon points="19 18 9 12 19 6 19 18" fill="currentColor" stroke="none" stroke-linejoin="round" style="fill:currentColor;stroke:none;"></polygon>
+        <line x1="5" y1="6" x2="5" y2="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" style="fill:none;stroke:currentColor;stroke-width:2.2;"></line>
+      </symbol>
+      <symbol id="icon-next" viewBox="0 0 24 24">
+        <polygon points="5 6 15 12 5 18 5 6" fill="currentColor" stroke="none" stroke-linejoin="round" style="fill:currentColor;stroke:none;"></polygon>
+        <line x1="19" y1="6" x2="19" y2="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" style="fill:none;stroke:currentColor;stroke-width:2.2;"></line>
+      </symbol>
+      <symbol id="icon-shuffle" viewBox="0 0 24 24">
+        <polyline points="16 3 21 3 21 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="fill:none;stroke:currentColor;stroke-width:2;"></polyline>
+        <line x1="4" y1="20" x2="21" y2="3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="fill:none;stroke:currentColor;stroke-width:2;"></line>
+        <polyline points="21 16 21 21 16 21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="fill:none;stroke:currentColor;stroke-width:2;"></polyline>
+        <line x1="15" y1="15" x2="21" y2="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="fill:none;stroke:currentColor;stroke-width:2;"></line>
+        <line x1="4" y1="4" x2="9" y2="9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="fill:none;stroke:currentColor;stroke-width:2;"></line>
+      </symbol>
+      <symbol id="icon-repeat" viewBox="0 0 24 24">
+        <polyline points="17 2 21 6 17 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="fill:none;stroke:currentColor;stroke-width:2;"></polyline>
+        <path d="M3 11V9a4 4 0 0 1 4-4h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="fill:none;stroke:currentColor;stroke-width:2;"></path>
+        <polyline points="7 22 3 18 7 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="fill:none;stroke:currentColor;stroke-width:2;"></polyline>
+        <path d="M21 13v2a4 4 0 0 1-4 4H3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="fill:none;stroke:currentColor;stroke-width:2;"></path>
+      </symbol>
+      <symbol id="icon-repeat-one" viewBox="0 0 24 24">
+        <polyline points="17 2 21 6 17 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="fill:none;stroke:currentColor;stroke-width:2;"></polyline>
+        <path d="M3 11V9a4 4 0 0 1 4-4h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="fill:none;stroke:currentColor;stroke-width:2;"></path>
+        <polyline points="7 22 3 18 7 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="fill:none;stroke:currentColor;stroke-width:2;"></polyline>
+        <path d="M21 13v2a4 4 0 0 1-4 4H3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="fill:none;stroke:currentColor;stroke-width:2;"></path>
+        <path d="M11 10h1v4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="fill:none;stroke:currentColor;stroke-width:2;"></path>
+      </symbol>
+      <symbol id="icon-undo" viewBox="0 0 24 24">
+        <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="fill:none;stroke:currentColor;stroke-width:2;"></path>
+        <polyline points="3 3 3 8 8 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="fill:none;stroke:currentColor;stroke-width:2;"></polyline>
+      </symbol>
+      <symbol id="icon-redo" viewBox="0 0 24 24">
+        <path d="M21 12a9 9 0 1 1-9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="fill:none;stroke:currentColor;stroke-width:2;"></path>
+        <polyline points="21 3 21 8 16 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="fill:none;stroke:currentColor;stroke-width:2;"></polyline>
+      </symbol>
+
+      <!-- Hearts & Favorites -->
+      <symbol id="icon-heart-outline" viewBox="0 0 24 24">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="fill:none;stroke:currentColor;stroke-width:1.8;"></path>
+      </symbol>
+      <symbol id="icon-heart-solid" viewBox="0 0 24 24">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" fill="currentColor" stroke="none" style="fill:currentColor;stroke:none;"></path>
+      </symbol>
+
+      <!-- Audio / Volume / EQ -->
+      <symbol id="icon-volume-high" viewBox="0 0 24 24">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor" stroke="none" stroke-linejoin="round" style="fill:currentColor;stroke:none;"></polygon>
+        <path d="M15.5 8.5a5 5 0 0 1 0 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" style="fill:none;stroke:currentColor;stroke-width:1.8;"></path>
+        <path d="M19 5a9 9 0 0 1 0 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" style="fill:none;stroke:currentColor;stroke-width:1.8;"></path>
+      </symbol>
+      <symbol id="icon-volume-mute" viewBox="0 0 24 24">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor" stroke="none" stroke-linejoin="round" style="fill:currentColor;stroke:none;"></polygon>
+        <line x1="22" y1="9" x2="16" y2="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="fill:none;stroke:currentColor;stroke-width:2;"></line>
+        <line x1="16" y1="9" x2="22" y2="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="fill:none;stroke:currentColor;stroke-width:2;"></line>
+      </symbol>
+      <symbol id="icon-headphones" viewBox="0 0 24 24">
+        <path d="M3 18v-6a9 9 0 0 1 18 0v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" style="fill:none;stroke:currentColor;stroke-width:1.8;"></path>
+        <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" fill="currentColor" stroke="none" style="fill:currentColor;stroke:none;"></path>
+      </symbol>
+      <symbol id="icon-eq" viewBox="0 0 24 24">
+        <line x1="4" y1="21" x2="4" y2="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="fill:none;stroke:currentColor;stroke-width:2;"></line>
+        <line x1="4" y1="10" x2="4" y2="3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="fill:none;stroke:currentColor;stroke-width:2;"></line>
+        <line x1="12" y1="21" x2="12" y2="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="fill:none;stroke:currentColor;stroke-width:2;"></line>
+        <line x1="12" y1="8" x2="12" y2="3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="fill:none;stroke:currentColor;stroke-width:2;"></line>
+        <line x1="20" y1="21" x2="20" y2="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="fill:none;stroke:currentColor;stroke-width:2;"></line>
+        <line x1="20" y1="12" x2="20" y2="3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="fill:none;stroke:currentColor;stroke-width:2;"></line>
+        <circle cx="4" cy="12" r="2.2" fill="currentColor" stroke="none" style="fill:currentColor;stroke:none;"></circle>
+        <circle cx="12" cy="10" r="2.2" fill="currentColor" stroke="none" style="fill:currentColor;stroke:none;"></circle>
+        <circle cx="20" cy="14" r="2.2" fill="currentColor" stroke="none" style="fill:currentColor;stroke:none;"></circle>
+      </symbol>
+
+      <!-- Navigation & Tabs -->
+      <symbol id="icon-home" viewBox="0 0 24 24">
+        <path d="M3 10l9-7 9 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="fill:none;stroke:currentColor;stroke-width:1.8;"></path>
+        <polyline points="9 22 9 12 15 12 15 22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="fill:none;stroke:currentColor;stroke-width:1.8;"></polyline>
+      </symbol>
+      <symbol id="icon-search" viewBox="0 0 24 24">
+        <circle cx="10.5" cy="10.5" r="7" fill="none" stroke="currentColor" stroke-width="2" style="fill:none;stroke:currentColor;stroke-width:2;"></circle>
+        <line x1="21" y1="21" x2="15.5" y2="15.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" style="fill:none;stroke:currentColor;stroke-width:2.2;"></line>
+      </symbol>
+      <symbol id="icon-library" viewBox="0 0 24 24">
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" style="fill:none;stroke:currentColor;stroke-width:1.8;"></path>
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" style="fill:none;stroke:currentColor;stroke-width:1.8;"></path>
+      </symbol>
+      <symbol id="icon-gym" viewBox="0 0 24 24">
+        <path d="M6 5v14M18 5v14M2 9v6M22 9v6M6 12h12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" style="fill:none;stroke:currentColor;stroke-width:2.2;"></path>
+      </symbol>
+      <symbol id="icon-zap" viewBox="0 0 24 24">
+        <polygon points="13 2 4 13 11 13 10 22 20 10 13 10 13 2" fill="currentColor" stroke="none" stroke-linejoin="round" style="fill:currentColor;stroke:none;"></polygon>
+      </symbol>
+      <symbol id="icon-clock" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="1.8" style="fill:none;stroke:currentColor;stroke-width:1.8;"></circle>
+        <polyline points="12 6 12 12 16 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" style="fill:none;stroke:currentColor;stroke-width:1.8;"></polyline>
+      </symbol>
+      <symbol id="icon-globe" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="1.8" style="fill:none;stroke:currentColor;stroke-width:1.8;"></circle>
+        <line x1="2.5" y1="12" x2="21.5" y2="12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" style="fill:none;stroke:currentColor;stroke-width:1.8;"></line>
+        <path d="M12 2.5a15.3 15.3 0 0 1 4 9.5 15.3 15.3 0 0 1-4 9.5 15.3 15.3 0 0 1-4-9.5 15.3 15.3 0 0 1 4-9.5z" fill="none" stroke="currentColor" stroke-width="1.8" style="fill:none;stroke:currentColor;stroke-width:1.8;"></path>
+      </symbol>
+      <symbol id="icon-palette" viewBox="0 0 24 24">
+        <path d="M12 3C7 3 3 7 3 12c0 4.5 3.5 8 8 8 .8 0 1.5-.7 1.5-1.5 0-.4-.2-.8-.4-1.1-.3-.3-.4-.7-.4-1.1 0-.8.7-1.5 1.5-1.5H16c3.3 0 6-2.7 6-6 0-4.5-4-8-10-8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="fill:none;stroke:currentColor;stroke-width:1.8;"></path>
+        <circle cx="7.5" cy="11.5" r="1.2" fill="currentColor" stroke="none" style="fill:currentColor;stroke:none;"></circle>
+        <circle cx="9.5" cy="7.5" r="1.2" fill="currentColor" stroke="none" style="fill:currentColor;stroke:none;"></circle>
+        <circle cx="14.5" cy="7.5" r="1.2" fill="currentColor" stroke="none" style="fill:currentColor;stroke:none;"></circle>
+        <circle cx="16.5" cy="11.5" r="1.2" fill="currentColor" stroke="none" style="fill:currentColor;stroke:none;"></circle>
+      </symbol>
+
+      <!-- Mood & Categories -->
+      <symbol id="icon-moon" viewBox="0 0 24 24">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="fill:none;stroke:currentColor;stroke-width:1.8;"></path>
+      </symbol>
+      <symbol id="icon-flame" viewBox="0 0 24 24">
+        <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="fill:none;stroke:currentColor;stroke-width:1.8;"></path>
+      </symbol>
+      <symbol id="icon-coffee" viewBox="0 0 24 24">
+        <path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8zM6 1v3M10 1v3M14 1v3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" style="fill:none;stroke:currentColor;stroke-width:1.8;"></path>
+      </symbol>
+      <symbol id="icon-gamepad" viewBox="0 0 24 24">
+        <line x1="6" y1="12" x2="10" y2="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="fill:none;stroke:currentColor;stroke-width:2;"></line>
+        <line x1="8" y1="10" x2="8" y2="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="fill:none;stroke:currentColor;stroke-width:2;"></line>
+        <circle cx="15" cy="13" r="1.1" fill="currentColor" stroke="none" style="fill:currentColor;stroke:none;"></circle>
+        <circle cx="18" cy="11" r="1.1" fill="currentColor" stroke="none" style="fill:currentColor;stroke:none;"></circle>
+        <rect x="2" y="6" width="20" height="12" rx="6" fill="none" stroke="currentColor" stroke-width="1.8" style="fill:none;stroke:currentColor;stroke-width:1.8;"></rect>
+      </symbol>
+      <symbol id="icon-sparkles" viewBox="0 0 24 24">
+        <path d="M12 2l2.4 5.6L20 10l-5.6 2.4L12 18l-2.4-5.6L4 10l5.6-2.4L12 2z" fill="currentColor" stroke="none" style="fill:currentColor;stroke:none;"></path>
+        <path d="M19 15l1 2.2 2.2 1-2.2 1-1 2.2-1-2.2-2.2-1 2.2-1 1-2.2z" fill="currentColor" stroke="none" style="fill:currentColor;stroke:none;"></path>
+      </symbol>
+      <symbol id="icon-music" viewBox="0 0 24 24">
+        <path d="M9 18V5l12-2v13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="fill:none;stroke:currentColor;stroke-width:1.8;"></path>
+        <circle cx="6" cy="18" r="3" fill="currentColor" stroke="none" style="fill:currentColor;stroke:none;"></circle>
+        <circle cx="18" cy="16" r="3" fill="currentColor" stroke="none" style="fill:currentColor;stroke:none;"></circle>
+      </symbol>
+
+      <!-- Utility / Actions -->
+      <symbol id="icon-download" viewBox="0 0 24 24">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="fill:none;stroke:currentColor;stroke-width:1.8;"></path>
+        <polyline points="7 10 12 15 17 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="fill:none;stroke:currentColor;stroke-width:1.8;"></polyline>
+        <line x1="12" y1="15" x2="12" y2="3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" style="fill:none;stroke:currentColor;stroke-width:1.8;"></line>
+      </symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24">
+        <polyline points="20 6 9 17 4 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="fill:none;stroke:currentColor;stroke-width:2.2;"></polyline>
+      </symbol>
+      <symbol id="icon-plus" viewBox="0 0 24 24">
+        <line x1="12" y1="5" x2="12" y2="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="fill:none;stroke:currentColor;stroke-width:2;"></line>
+        <line x1="5" y1="12" x2="19" y2="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="fill:none;stroke:currentColor;stroke-width:2;"></line>
+      </symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24">
+        <line x1="18" y1="6" x2="6" y2="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="fill:none;stroke:currentColor;stroke-width:2;"></line>
+        <line x1="6" y1="6" x2="18" y2="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="fill:none;stroke:currentColor;stroke-width:2;"></line>
+      </symbol>
+      <symbol id="icon-more" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="1.8" fill="currentColor" stroke="none" style="fill:currentColor;stroke:none;"></circle>
+        <circle cx="19" cy="12" r="1.8" fill="currentColor" stroke="none" style="fill:currentColor;stroke:none;"></circle>
+        <circle cx="5" cy="12" r="1.8" fill="currentColor" stroke="none" style="fill:currentColor;stroke:none;"></circle>
+      </symbol>
+      <symbol id="icon-chevron-down" viewBox="0 0 24 24">
+        <polyline points="6 9 12 15 18 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="fill:none;stroke:currentColor;stroke-width:2;"></polyline>
+      </symbol>
+      <symbol id="icon-folder" viewBox="0 0 24 24">
+        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="fill:none;stroke:currentColor;stroke-width:1.8;"></path>
+      </symbol>
+      <symbol id="icon-share" viewBox="0 0 24 24">
+        <circle cx="18" cy="5" r="3" fill="none" stroke="currentColor" stroke-width="1.8" style="fill:none;stroke:currentColor;stroke-width:1.8;"></circle>
+        <circle cx="6" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.8" style="fill:none;stroke:currentColor;stroke-width:1.8;"></circle>
+        <circle cx="18" cy="19" r="3" fill="none" stroke="currentColor" stroke-width="1.8" style="fill:none;stroke:currentColor;stroke-width:1.8;"></circle>
+        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" fill="none" stroke="currentColor" stroke-width="1.8" style="fill:none;stroke:currentColor;stroke-width:1.8;"></line>
+        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" fill="none" stroke="currentColor" stroke-width="1.8" style="fill:none;stroke:currentColor;stroke-width:1.8;"></line>
+      </symbol>
+      <symbol id="icon-link" viewBox="0 0 24 24">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="fill:none;stroke:currentColor;stroke-width:1.8;"></path>
+        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="fill:none;stroke:currentColor;stroke-width:1.8;"></path>
+      </symbol>
+      <symbol id="icon-trash" viewBox="0 0 24 24">
+        <polyline points="3 6 5 6 21 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="fill:none;stroke:currentColor;stroke-width:1.8;"></polyline>
+        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="fill:none;stroke:currentColor;stroke-width:1.8;"></path>
+      </symbol>
+      <symbol id="icon-eye" viewBox="0 0 24 24">
+        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="fill:none;stroke:currentColor;stroke-width:1.8;"></path>
+        <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.8" style="fill:none;stroke:currentColor;stroke-width:1.8;"></circle>
+      </symbol>
+      <symbol id="icon-mic" viewBox="0 0 24 24">
+        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="fill:none;stroke:currentColor;stroke-width:1.8;"></path>
+        <path d="M19 10v2a7 7 0 0 1-14 0v-2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="fill:none;stroke:currentColor;stroke-width:1.8;"></path>
+        <line x1="12" y1="19" x2="12" y2="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" style="fill:none;stroke:currentColor;stroke-width:1.8;"></line>
+        <line x1="8" y1="23" x2="16" y2="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" style="fill:none;stroke:currentColor;stroke-width:1.8;"></line>
+      </symbol>
+      <symbol id="icon-bell" viewBox="0 0 24 24">
+        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="fill:none;stroke:currentColor;stroke-width:1.8;"></path>
+        <path d="M13.73 21a2 2 0 0 1-3.46 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="fill:none;stroke:currentColor;stroke-width:1.8;"></path>
+      </symbol>
+      <symbol id="icon-edit" viewBox="0 0 24 24">
+        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="fill:none;stroke:currentColor;stroke-width:1.8;"></path>
+        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="fill:none;stroke:currentColor;stroke-width:1.8;"></path>
+      </symbol>
+    </defs>
+  </svg>
+
 
   <!-- Toast Notification Container -->
   <div class="toast-container" id="toast-container" aria-live="polite"></div>
@@ -35,11 +245,77 @@
 
   <!-- ==================== APP CONTAINER ==================== -->
   <div id="app">
+    <!-- ==================== DESKTOP NAVIGATION SIDEBAR (Spotify / Apple Music Caliber) ==================== -->
+    <aside class="desktop-sidebar" id="desktop-sidebar">
+      <div class="sidebar-brand">
+        <span class="brand-bolt-svg"><svg class="v-icon v-icon-lg"><use href="#icon-zap"></use></svg></span>
+        <div class="brand-text">
+          <span class="brand-name">VIBE</span>
+          <span class="brand-badge">PRO</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <button class="sidebar-nav-item active" data-tab="home">
+          <svg class="v-icon"><use href="#icon-home"></use></svg>
+          <span class="sidebar-label" data-i18n="nav_home">Home</span>
+        </button>
+        <button class="sidebar-nav-item" data-tab="search">
+          <svg class="v-icon"><use href="#icon-search"></use></svg>
+          <span class="sidebar-label" data-i18n="nav_search">Search</span>
+        </button>
+        <button class="sidebar-nav-item" data-tab="library">
+          <svg class="v-icon"><use href="#icon-library"></use></svg>
+          <span class="sidebar-label" data-i18n="nav_library">Playlists</span>
+        </button>
+        <button class="sidebar-nav-item sidebar-nav-item--gym" data-tab="gym">
+          <svg class="v-icon"><use href="#icon-gym"></use></svg>
+          <span class="sidebar-label" data-i18n="nav_gym">Gym Mode</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-section">
+        <h4 class="sidebar-heading" data-i18n="mood_stations">محطات الطاقة والمزاج</h4>
+        <div class="sidebar-stations">
+          <button class="sidebar-station-pill" data-station="sahar">
+            <svg class="v-icon v-icon-sm"><use href="#icon-moon"></use></svg>
+            <span>سهر واسترخاء</span>
+          </button>
+          <button class="sidebar-station-pill" data-station="gym">
+            <svg class="v-icon v-icon-sm"><use href="#icon-flame"></use></svg>
+            <span>طاقة وحماس</span>
+          </button>
+          <button class="sidebar-station-pill" data-station="focus">
+            <svg class="v-icon v-icon-sm"><use href="#icon-coffee"></use></svg>
+            <span>تركيز و Chill</span>
+          </button>
+          <button class="sidebar-station-pill" data-station="gaming">
+            <svg class="v-icon v-icon-sm"><use href="#icon-gamepad"></use></svg>
+            <span>ألعاب و Phonk</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-offline-card">
+          <div class="offline-card-icon">
+            <svg class="v-icon"><use href="#icon-download"></use></svg>
+          </div>
+          <div class="offline-card-info">
+            <span class="offline-card-title">Zero-Net Offline Cache</span>
+            <span class="offline-card-count" id="sidebar-cached-count">Ready</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Column for Seamless Flex Layout without Any Clipping -->
+    <div class="app-main-view" id="app-main-view">
 
     <!-- Top App Bar -->
     <header class="app-header">
       <div class="header-brand">
-        <span class="brand-bolt">⚡</span>
+        <span class="brand-bolt-svg"><svg class="v-icon v-icon-lg"><use href="#icon-zap"></use></svg></span>
         <div class="brand-text">
           <span class="brand-name">VIBE</span>
           <span class="brand-badge">v2.0</span>
@@ -60,23 +336,23 @@
 
         <!-- Sleep timer indicator/toggle -->
         <button class="icon-btn" id="btn-header-sleep" aria-label="Sleep Timer" title="Sleep Timer">
-          ⏱️
+          <svg class="v-icon"><use href="#icon-clock"></use></svg>
           <span class="sleep-indicator" id="sleep-indicator" style="display: none;"></span>
         </button>
 
         <!-- Studio EQ & Bass Boost -->
         <button class="icon-btn" id="btn-header-eq" aria-label="Equalizer & Bass Boost" title="Equalizer & Bass Boost">
-          🎚️
+          <svg class="v-icon"><use href="#icon-eq"></use></svg>
         </button>
 
         <!-- Theme Picker -->
         <button class="icon-btn" id="btn-header-theme" aria-label="Theme Color" title="Change Visual Theme">
-          🎨
+          <svg class="v-icon"><use href="#icon-palette"></use></svg>
         </button>
 
         <!-- Quick Random Play -->
         <button class="icon-btn" id="btn-header-shuffle" aria-label="Shuffle All" title="Shuffle All Music">
-          🔀
+          <svg class="v-icon"><use href="#icon-shuffle"></use></svg>
         </button>
       </div>
     </header>
@@ -91,21 +367,21 @@
         <div class="hero-card" id="hero-gym-card">
           <div class="hero-card__glow"></div>
           <div class="hero-card__content">
-            <span class="hero-pill">🔥 GYM WORKOUT</span>
+            <span class="hero-pill"><svg class="v-icon v-icon-sm"><use href="#icon-flame"></use></svg> GYM WORKOUT</span>
             <h2 class="hero-title">Beast Mode Motivation</h2>
             <p class="hero-subtitle">High-tempo phonk, hardstyle & Arabic energy beats with 0ms gapless transition</p>
             <div class="hero-actions">
               <button class="btn btn-primary btn-glow" id="btn-hero-play">
-                <span class="btn-icon">▶</span> Play Gym Mix
+                <svg class="v-icon"><use href="#icon-play"></use></svg> Play Gym Mix
               </button>
               <button class="btn btn-glass" id="btn-hero-gym-view">
-                ⚡ Gym HUD
+                <svg class="v-icon"><use href="#icon-gym"></use></svg> Gym HUD
               </button>
             </div>
           </div>
           <div class="hero-graphic">
             <div class="pulse-ring"></div>
-            <span class="hero-emoji">🏋️‍♂️</span>
+            <span class="hero-emoji"><svg class="v-icon hero-svg"><use href="#icon-gym"></use></svg></span>
           </div>
         </div>
 
@@ -120,37 +396,37 @@
           <div class="mood-stations-scroll">
             <div class="mood-card" data-station="phonk">
               <div class="mood-card-bg phonk-bg"></div>
-              <span class="mood-emoji">🔥</span>
+              <span class="mood-icon-wrap"><svg class="v-icon"><use href="#icon-flame"></use></svg></span>
               <h4 class="mood-name" data-i18n="station_phonk">Gym Phonk</h4>
               <p class="mood-desc" data-i18n="station_phonk_desc">Heavy lifting bass</p>
             </div>
             <div class="mood-card" data-station="arabic_energy">
               <div class="mood-card-bg arabic-bg"></div>
-              <span class="mood-emoji">🇪🇬</span>
+              <span class="mood-icon-wrap"><svg class="v-icon"><use href="#icon-sparkles"></use></svg></span>
               <h4 class="mood-name" data-i18n="station_arabic">Arabic Energy</h4>
               <p class="mood-desc" data-i18n="station_arabic_desc">Wegz, Pablo &amp; Trap</p>
             </div>
             <div class="mood-card" data-station="edm">
               <div class="mood-card-bg edm-bg"></div>
-              <span class="mood-emoji">⚡</span>
+              <span class="mood-icon-wrap"><svg class="v-icon"><use href="#icon-zap"></use></svg></span>
               <h4 class="mood-name" data-i18n="station_edm">EDM Festival</h4>
               <p class="mood-desc" data-i18n="station_edm_desc">Peak energy drops</p>
             </div>
             <div class="mood-card" data-station="chill">
               <div class="mood-card-bg chill-bg"></div>
-              <span class="mood-emoji">🌙</span>
+              <span class="mood-icon-wrap"><svg class="v-icon"><use href="#icon-moon"></use></svg></span>
               <h4 class="mood-name" data-i18n="station_chill">Late Night Chill</h4>
               <p class="mood-desc" data-i18n="station_chill_desc">Relax, Lo-Fi &amp; Study</p>
             </div>
             <div class="mood-card" data-station="running">
               <div class="mood-card-bg run-bg"></div>
-              <span class="mood-emoji">🏎️</span>
+              <span class="mood-icon-wrap"><svg class="v-icon"><use href="#icon-zap"></use></svg></span>
               <h4 class="mood-name" data-i18n="station_running">Running 150+ BPM</h4>
               <p class="mood-desc" data-i18n="station_running_desc">Fast cardio cadence</p>
             </div>
             <div class="mood-card" data-station="acoustic">
               <div class="mood-card-bg acoustic-bg"></div>
-              <span class="mood-emoji">☕</span>
+              <span class="mood-icon-wrap"><svg class="v-icon"><use href="#icon-coffee"></use></svg></span>
               <h4 class="mood-name" data-i18n="station_acoustic">Coffee Acoustic</h4>
               <p class="mood-desc" data-i18n="station_acoustic_desc">Serene acoustic calm</p>
             </div>
@@ -159,11 +435,11 @@
 
         <!-- Category Filter Pills -->
         <div class="filter-chips-scroll">
-          <button class="filter-chip active" data-filter="all" data-i18n="chip_all">🔥 All (60+)</button>
-          <button class="filter-chip" data-filter="gym" data-i18n="chip_gym">🏋️ Gym &amp; Workout</button>
-          <button class="filter-chip" data-filter="arabic" data-i18n="chip_arabic">🇪🇬 Arabic Hits</button>
-          <button class="filter-chip" data-filter="global" data-i18n="chip_global">🌍 Global Hits</button>
-          <button class="filter-chip" data-filter="local" data-i18n="chip_local">💾 Local / Offline</button>
+          <button class="filter-chip active" data-filter="all" data-i18n="chip_all"><svg class="v-icon v-icon-sm"><use href="#icon-music"></use></svg> All</button>
+          <button class="filter-chip" data-filter="gym" data-i18n="chip_gym"><svg class="v-icon v-icon-sm"><use href="#icon-gym"></use></svg> Gym</button>
+          <button class="filter-chip" data-filter="arabic" data-i18n="chip_arabic"><svg class="v-icon v-icon-sm"><use href="#icon-globe"></use></svg> Arabic</button>
+          <button class="filter-chip" data-filter="global" data-i18n="chip_global"><svg class="v-icon v-icon-sm"><use href="#icon-sparkles"></use></svg> Global</button>
+          <button class="filter-chip" data-filter="local" data-i18n="chip_local"><svg class="v-icon v-icon-sm"><use href="#icon-download"></use></svg> Offline</button>
         </div>
 
         <!-- Section Title & Controls -->
@@ -189,7 +465,7 @@
 
         <div class="search-box-wrapper">
           <div class="search-input-box">
-            <span class="search-icon">🔍</span>
+            <span class="search-icon"><svg class="v-icon"><use href="#icon-search"></use></svg></span>
             <input 
               type="search" 
               id="search-input" 
@@ -199,17 +475,33 @@
               dir="auto"
               data-i18n-placeholder="search_placeholder"
             >
-            <button class="voice-search-btn" id="btn-voice-search" title="Voice Search" aria-label="Voice Search">🎙️</button>
-            <button class="search-clear-btn" id="search-clear-btn" style="display: none;">✕</button>
+            <button class="voice-search-btn" id="btn-voice-search" title="Voice Search" aria-label="Voice Search"><svg class="v-icon"><use href="#icon-mic"></use></svg></button>
+            <button class="search-clear-btn" id="search-clear-btn" style="display: none;"><svg class="v-icon"><use href="#icon-close"></use></svg></button>
             <div class="search-spinner" id="search-spinner" style="display: none;"></div>
           </div>
+        </div>
+
+        <!-- Search Filter Modes (Originals vs All vs Gym) -->
+        <div class="search-mode-tabs" id="search-mode-tabs">
+          <button class="search-mode-chip active" data-mode="original" id="mode-btn-original">
+            <span class="mode-icon"><svg class="v-icon v-icon-sm"><use href="#icon-music"></use></svg></span>
+            <span class="mode-text">الأغاني الأصلية (Originals)</span>
+          </button>
+          <button class="search-mode-chip" data-mode="all" id="mode-btn-all">
+            <span class="mode-icon"><svg class="v-icon v-icon-sm"><use href="#icon-zap"></use></svg></span>
+            <span class="mode-text">الكل & ريمكسات (All & Remixes)</span>
+          </button>
+          <button class="search-mode-chip" data-mode="gym" id="mode-btn-gym">
+            <span class="mode-icon"><svg class="v-icon v-icon-sm"><use href="#icon-gym"></use></svg></span>
+            <span class="mode-text">جيم وفونك (Gym Phonk)</span>
+          </button>
         </div>
 
         <!-- Search Source Switcher & API Info -->
         <div class="search-meta-bar">
           <div class="api-status-badge">
             <span class="api-dot"></span>
-            <span>Audius Fast Stream Engine (Free & Unlimited)</span>
+            <span id="search-source-label">محرك البحث الذكي: جلب الأغاني الأصلية الرسمية وبث فوري</span>
           </div>
         </div>
 
@@ -281,42 +573,42 @@
 
           <!-- Gym Beast Mode -->
           <div class="smart-card gym-card" data-playlist="smart_gym">
-            <div class="smart-card__icon">🏋️‍♂️</div>
+            <div class="smart-card__icon"><svg class="v-icon v-icon-lg"><use href="#icon-gym"></use></svg></div>
             <div class="smart-card__body">
               <h4 class="smart-card__title">Gym Beast Mode</h4>
               <p class="smart-card__count" id="count-smart-gym">Curated Mix</p>
             </div>
-            <button class="smart-card__play" data-play-smart="smart_gym" title="Play">▶</button>
+            <button class="smart-card__play" data-play-smart="smart_gym" title="Play"><svg class="v-icon"><use href="#icon-play"></use></svg></button>
           </div>
 
           <!-- Liked Songs -->
           <div class="smart-card liked-card" data-playlist="smart_favorites">
-            <div class="smart-card__icon">❤️</div>
+            <div class="smart-card__icon"><svg class="v-icon v-icon-lg"><use href="#icon-heart-solid"></use></svg></div>
             <div class="smart-card__body">
               <h4 class="smart-card__title">Liked Songs</h4>
               <p class="smart-card__count" id="count-smart-favorites">0 songs</p>
             </div>
-            <button class="smart-card__play" data-play-smart="smart_favorites" title="Play">▶</button>
+            <button class="smart-card__play" data-play-smart="smart_favorites" title="Play"><svg class="v-icon"><use href="#icon-play"></use></svg></button>
           </div>
 
           <!-- Local Offline Files -->
           <div class="smart-card local-card" data-playlist="smart_local">
-            <div class="smart-card__icon">📱</div>
+            <div class="smart-card__icon"><svg class="v-icon v-icon-lg"><use href="#icon-folder"></use></svg></div>
             <div class="smart-card__body">
               <h4 class="smart-card__title">Local Files</h4>
               <p class="smart-card__count" id="count-smart-local">19 tracks</p>
             </div>
-            <button class="smart-card__play" data-play-smart="smart_local" title="Play">▶</button>
+            <button class="smart-card__play" data-play-smart="smart_local" title="Play"><svg class="v-icon"><use href="#icon-play"></use></svg></button>
           </div>
 
           <!-- Downloaded to IndexedDB -->
           <div class="smart-card downloaded-card" data-playlist="smart_downloaded">
-            <div class="smart-card__icon">⬇️</div>
+            <div class="smart-card__icon"><svg class="v-icon v-icon-lg"><use href="#icon-download"></use></svg></div>
             <div class="smart-card__body">
               <h4 class="smart-card__title">Saved Offline</h4>
               <p class="smart-card__count" id="count-smart-downloaded">0 saved</p>
             </div>
-            <button class="smart-card__play" data-play-smart="smart_downloaded" title="Play">▶</button>
+            <button class="smart-card__play" data-play-smart="smart_downloaded" title="Play"><svg class="v-icon"><use href="#icon-play"></use></svg></button>
           </div>
 
         </div>
@@ -333,6 +625,25 @@
           <button class="btn btn-primary btn-sm" id="btn-download-all-favs" data-i18n="download_all_btn">
             ⬇️ Download All
           </button>
+        </div>
+
+        <!-- Smart Auto-Cache & Data Saver Dashboard -->
+        <div class="cache-manager-card" id="cache-manager-card">
+          <div class="cache-manager-header">
+            <div class="cache-title-wrap">
+              <span class="cache-pulse-icon">⚡</span>
+              <div>
+                <h4 class="cache-card-title">توفير النت والحفظ التلقائي (Zero Net Cache)</h4>
+                <p class="cache-card-desc">الأغاني التي تسمعها تُحفظ تلقائياً في التخزين المؤقت لتشغيلها أوفلاين دون سحب أي بيانات.</p>
+              </div>
+            </div>
+          </div>
+          <div class="cache-manager-actions">
+            <span class="cache-stats-badge" id="cache-stats-badge">💾 0 أغنية محفوظة مؤقتاً (0 MB)</span>
+            <button class="btn btn-glass btn-xs" id="btn-clear-cache" title="مسح التخزين المؤقت لتفريغ المساحة">
+              🗑️ مسح الكاش
+            </button>
+          </div>
         </div>
 
         <!-- Custom User Playlists Section -->
@@ -362,7 +673,7 @@
           <div class="gym-hud__top">
             <span class="gym-mode-badge">⚡ GYM WORKOUT HUD</span>
             <button class="wake-lock-toggle" id="btn-wake-lock" title="Keep screen awake during workout">
-              <span class="wake-lock-icon">👁️</span>
+              <span class="wake-lock-icon"><svg class="v-icon v-icon-sm"><use href="#icon-eye"></use></svg></span>
               <span class="wake-lock-text">Screen Awake</span>
             </button>
           </div>
@@ -422,28 +733,28 @@
             <!-- 15s Rewind -->
             <button class="gym-btn-skip" id="gym-btn-skip-back" aria-label="Skip back 15s" title="Skip back 15s">
               <span class="gym-skip-num">15</span>
-              <span class="gym-skip-arrow">↺</span>
+              <svg class="v-icon v-icon-sm"><use href="#icon-undo"></use></svg>
             </button>
 
             <!-- Previous -->
             <button class="gym-btn-nav" id="gym-btn-prev" aria-label="Previous">
-              ⏮
+              <svg class="v-icon v-icon-lg"><use href="#icon-prev"></use></svg>
             </button>
 
             <!-- Huge Play/Pause -->
             <button class="gym-btn-play" id="gym-btn-play" aria-label="Play / Pause">
-              <span class="gym-play-icon" id="gym-play-icon">▶</span>
+              <span class="gym-play-icon" id="gym-play-icon"><svg class="v-icon v-icon-xl"><use href="#icon-play"></use></svg></span>
             </button>
 
             <!-- Next -->
             <button class="gym-btn-nav" id="gym-btn-next" aria-label="Next">
-              ⏭
+              <svg class="v-icon v-icon-lg"><use href="#icon-next"></use></svg>
             </button>
 
             <!-- 15s Forward -->
             <button class="gym-btn-skip" id="gym-btn-skip-forward" aria-label="Skip forward 15s" title="Skip forward 15s">
               <span class="gym-skip-num">15</span>
-              <span class="gym-skip-arrow">↻</span>
+              <svg class="v-icon v-icon-sm"><use href="#icon-redo"></use></svg>
             </button>
           </div>
 
@@ -492,7 +803,9 @@
 
     </main>
 
-  </div>
+    </div><!-- End of .app-main-view -->
+
+  </div><!-- End of #app -->
 
   <!-- ==================== PERSISTENT MINI PLAYER ==================== -->
   <div class="mini-player" id="mini-player">
@@ -514,9 +827,9 @@
       </div>
 
       <div class="mini-player__actions">
-        <button class="mini-btn-like" id="mini-btn-like" aria-label="Favorite">🤍</button>
-        <button class="mini-btn-play" id="mini-btn-play" aria-label="Play/Pause">▶</button>
-        <button class="mini-btn-next" id="mini-btn-next" aria-label="Next">⏭</button>
+        <button class="mini-btn-like" id="mini-btn-like" aria-label="Favorite"><svg class="v-icon"><use href="#icon-heart-outline"></use></svg></button>
+        <button class="mini-btn-play" id="mini-btn-play" aria-label="Play/Pause"><svg class="v-icon v-icon-lg"><use href="#icon-play"></use></svg></button>
+        <button class="mini-btn-next" id="mini-btn-next" aria-label="Next"><svg class="v-icon"><use href="#icon-next"></use></svg></button>
       </div>
     </div>
   </div>
@@ -524,22 +837,22 @@
   <!-- ==================== BOTTOM NAVIGATION BAR ==================== -->
   <nav class="bottom-nav" id="bottom-nav">
     <button class="nav-item active" data-tab="home">
-      <span class="nav-icon">🏠</span>
+      <svg class="v-icon"><use href="#icon-home"></use></svg>
       <span class="nav-label" data-i18n="nav_home">Home</span>
     </button>
 
     <button class="nav-item" data-tab="search">
-      <span class="nav-icon">🔍</span>
+      <svg class="v-icon"><use href="#icon-search"></use></svg>
       <span class="nav-label" data-i18n="nav_search">Search</span>
     </button>
 
     <button class="nav-item" data-tab="library">
-      <span class="nav-icon">📚</span>
+      <svg class="v-icon"><use href="#icon-library"></use></svg>
       <span class="nav-label" data-i18n="nav_library">Playlists</span>
     </button>
 
     <button class="nav-item nav-item--gym" data-tab="gym">
-      <span class="nav-icon">⚡</span>
+      <svg class="v-icon"><use href="#icon-gym"></use></svg>
       <span class="nav-label" data-i18n="nav_gym">Gym Mode</span>
     </button>
   </nav>
@@ -554,7 +867,7 @@
 
       <!-- Top Header -->
       <div class="full-player-header">
-        <button class="icon-btn-lg" id="btn-minimize-player" aria-label="Minimize player">⌄</button>
+        <button class="icon-btn-lg" id="btn-minimize-player" aria-label="Minimize player"><svg class="v-icon"><use href="#icon-chevron-down"></use></svg></button>
         <div class="full-header-info">
           <span class="full-header-subtitle" data-i18n="now_playing">NOW PLAYING</span>
           <div class="full-header-badges">
@@ -562,7 +875,7 @@
             <span class="spatial-8d-pill" id="pill-8d-spatial" style="display: none;">🎧 8D Orbit</span>
           </div>
         </div>
-        <button class="icon-btn-lg" id="btn-full-options" aria-label="Track options">⋯</button>
+        <button class="icon-btn-lg" id="btn-full-options" aria-label="Track options"><svg class="v-icon"><use href="#icon-more"></use></svg></button>
       </div>
 
       <!-- Artwork / Vinyl Container -->
@@ -600,7 +913,7 @@
           <h2 class="full-track-title" id="full-track-title" dir="auto">No Track Selected</h2>
           <p class="full-track-artist" id="full-track-artist" dir="auto">—</p>
         </div>
-        <button class="btn-heart-lg" id="full-btn-like" aria-label="Like song">🤍</button>
+        <button class="btn-heart-lg" id="full-btn-like" aria-label="Like song"><svg class="v-icon v-icon-lg"><use href="#icon-heart-outline"></use></svg></button>
       </div>
 
       <!-- Progress Bar & Timestamps -->
@@ -621,40 +934,40 @@
       <div class="full-controls-row">
         <!-- Shuffle -->
         <button class="ctrl-btn-sm" id="full-btn-shuffle" aria-label="Shuffle" title="Shuffle">
-          🔀
+          <svg class="v-icon"><use href="#icon-shuffle"></use></svg>
         </button>
 
         <!-- Previous -->
         <button class="ctrl-btn-md" id="full-btn-prev" aria-label="Previous track">
-          ⏮
+          <svg class="v-icon"><use href="#icon-prev"></use></svg>
         </button>
 
         <!-- Big Play/Pause -->
         <button class="ctrl-btn-play-lg" id="full-btn-play" aria-label="Play/Pause">
-          <span id="full-play-icon">▶</span>
+          <span id="full-play-icon"><svg class="v-icon v-icon-xl"><use href="#icon-play"></use></svg></span>
         </button>
 
         <!-- Next -->
         <button class="ctrl-btn-md" id="full-btn-next" aria-label="Next track">
-          ⏭
+          <svg class="v-icon"><use href="#icon-next"></use></svg>
         </button>
 
         <!-- Repeat -->
         <button class="ctrl-btn-sm" id="full-btn-repeat" aria-label="Repeat" title="Repeat">
-          🔁
+          <svg class="v-icon"><use href="#icon-repeat"></use></svg>
         </button>
       </div>
 
       <!-- Secondary Utility Row -->
       <div class="full-utility-row">
         <button class="util-btn" id="full-btn-add-playlist" title="Add to Playlist">
-          <span>➕</span> <span data-i18n="btn_playlist">Playlist</span>
+          <svg class="v-icon v-icon-sm"><use href="#icon-plus"></use></svg> <span data-i18n="btn_playlist">Playlist</span>
         </button>
         <button class="util-btn" id="full-btn-share" title="Share & QR Code">
-          <span>🔗</span> <span data-i18n="btn_share">Share</span>
+          <svg class="v-icon v-icon-sm"><use href="#icon-share"></use></svg> <span data-i18n="btn_share">Share</span>
         </button>
         <button class="util-btn" id="full-btn-download" title="Save Offline in IndexedDB">
-          <span id="download-icon">⬇️</span> <span id="download-label" data-i18n="btn_save_offline">Save Offline</span>
+          <span id="download-icon"><svg class="v-icon v-icon-sm"><use href="#icon-download"></use></svg></span> <span id="download-label" data-i18n="btn_save_offline">Save Offline</span>
         </button>
         <button class="util-btn" id="full-btn-speed" title="Playback Speed">
           <span id="full-speed-label">1.0x</span>
@@ -667,22 +980,22 @@
       <!-- Pro Audio & Studio Tools Row -->
       <div class="full-pro-row">
         <button class="pro-btn" id="full-btn-eq" title="Equalizer & Bass Boost">
-          <span>🎚️</span> <span data-i18n="btn_eq">EQ &amp; Bass</span>
+          <svg class="v-icon v-icon-sm"><use href="#icon-eq"></use></svg> <span data-i18n="btn_eq">EQ &amp; Bass</span>
         </button>
         <button class="pro-btn" id="full-btn-8d" title="8D Spatial Surround Sound">
-          <span>🎧</span> <span id="label-8d-btn" data-i18n="btn_8d">8D Audio</span>
+          <svg class="v-icon v-icon-sm"><use href="#icon-headphones"></use></svg> <span id="label-8d-btn" data-i18n="btn_8d">8D Audio</span>
         </button>
         <button class="pro-btn" id="full-btn-lyrics" title="Sing-Along & Lyrics">
-          <span>🎤</span> <span data-i18n="btn_lyrics">Lyrics</span>
+          <svg class="v-icon v-icon-sm"><use href="#icon-mic"></use></svg> <span data-i18n="btn_lyrics">Lyrics</span>
         </button>
         <button class="pro-btn" id="full-btn-queue" title="Up Next Queue">
-          <span>📋</span> <span data-i18n="btn_queue">Queue</span>
+          <svg class="v-icon v-icon-sm"><use href="#icon-library"></use></svg> <span data-i18n="btn_queue">Queue</span>
         </button>
       </div>
 
       <!-- Volume Slider -->
       <div class="full-volume-row">
-        <span class="vol-icon" id="vol-icon">🔊</span>
+        <span class="vol-icon" id="vol-icon"><svg class="v-icon v-icon-sm"><use href="#icon-volume-high"></use></svg></span>
         <div class="vol-slider" id="vol-slider">
           <div class="vol-fill" id="vol-fill" style="width: 80%;"></div>
         </div>
@@ -725,7 +1038,7 @@
     <div class="modal-content modal-content--dialog">
       <div class="modal-header">
         <h3 class="modal-title">Create New Playlist</h3>
-        <button class="icon-btn" data-close-modal="modal-create-playlist">✕</button>
+        <button class="icon-btn" data-close-modal="modal-create-playlist"><svg class="v-icon"><use href="#icon-close"></use></svg></button>
       </div>
       <div class="modal-body">
         <label class="form-label" for="input-playlist-name">Playlist Name</label>
@@ -756,7 +1069,7 @@
     <div class="modal-content modal-content--dialog">
       <div class="modal-header">
         <h3 class="modal-title">Add to Playlist</h3>
-        <button class="icon-btn" data-close-modal="modal-add-to-playlist">✕</button>
+        <button class="icon-btn" data-close-modal="modal-add-to-playlist"><svg class="v-icon"><use href="#icon-close"></use></svg></button>
       </div>
       <div class="modal-body">
         <p class="target-track-label" id="target-track-label">Select playlists:</p>
@@ -776,7 +1089,7 @@
     <div class="modal-content modal-content--dialog">
       <div class="modal-header">
         <h3 class="modal-title">⏱️ Sleep Timer</h3>
-        <button class="icon-btn" data-close-modal="modal-sleep-timer">✕</button>
+        <button class="icon-btn" data-close-modal="modal-sleep-timer"><svg class="v-icon"><use href="#icon-close"></use></svg></button>
       </div>
       <div class="modal-body">
         <p class="sleep-status-text" id="sleep-status-text">Audio will stop automatically when the timer expires.</p>
@@ -797,7 +1110,7 @@
     <div class="modal-content modal-content--dialog modal-content--eq">
       <div class="modal-header">
         <h3 class="modal-title">🎚️ Studio Equalizer &amp; Bass</h3>
-        <button class="icon-btn" data-close-modal="modal-equalizer">✕</button>
+        <button class="icon-btn" data-close-modal="modal-equalizer"><svg class="v-icon"><use href="#icon-close"></use></svg></button>
       </div>
       <div class="modal-body">
         <!-- EQ Presets -->
@@ -966,7 +1279,7 @@
     <div class="modal-content modal-content--dialog">
       <div class="modal-header">
         <h3 class="modal-title">🎨 Visual Themes</h3>
-        <button class="icon-btn" data-close-modal="modal-themes">✕</button>
+        <button class="icon-btn" data-close-modal="modal-themes"><svg class="v-icon"><use href="#icon-close"></use></svg></button>
       </div>
       <div class="modal-body">
         <div class="themes-grid">
@@ -1012,7 +1325,7 @@
     <div class="modal-content modal-content--dialog">
       <div class="modal-header">
         <h3 class="modal-title">📥 Upload Your Music</h3>
-        <button class="icon-btn" data-close-modal="modal-upload">✕</button>
+        <button class="icon-btn" data-close-modal="modal-upload"><svg class="v-icon"><use href="#icon-close"></use></svg></button>
       </div>
       <div class="modal-body">
         <div class="upload-dropzone" id="upload-dropzone">
@@ -1034,7 +1347,7 @@
     <div class="modal-content modal-content--dialog">
       <div class="modal-header">
         <h3 class="modal-title" data-i18n="options_title">Track Options &amp; Share</h3>
-        <button class="icon-btn" data-close-modal="modal-track-options">✕</button>
+        <button class="icon-btn" data-close-modal="modal-track-options"><svg class="v-icon"><use href="#icon-close"></use></svg></button>
       </div>
       <div class="modal-body">
         <div class="track-options-hero">
@@ -1112,11 +1425,18 @@
     </div>
   </div>
 
+  <!-- Native DOM Audio Engines for Unstoppable Background & Mobile Screen-Lock Playback -->
+  <audio id="primary-audio" preload="auto" playsinline webkit-playsinline></audio>
+  <audio id="preload-audio" preload="auto" playsinline webkit-playsinline></audio>
+
   <!-- Offline Standalone QR Code Library -->
   <script src="assets/qrcode.min.js"></script>
 
+  <!-- HLS Streaming Engine for Zero-Lag Audio Playback -->
+  <script src="assets/hls.min.js"></script>
+
   <!-- Main JavaScript Engine -->
-  <script src="app.js"></script>
+  <script src="app.js?v=9.0"></script>
 
 </body>
 </html>
