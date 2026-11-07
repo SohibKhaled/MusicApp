@@ -1,209 +1,355 @@
 [
   {
-    "title": "AI Music",
-    "artist": "AI",
-    "file": "AI Music.mp3"
+    "id": "ar_1",
+    "title": "نور العين (Nour El Ain)",
+    "artist": "Amr Diab (عمرو دياب)",
+    "file": "Amr Diab - Nour El Ain.mp3",
+    "category": "Arabic Hits",
+    "tag": "arabic",
+    "cover": "assets/covers/cover_nour_el_ain.jpg",
+    "isLocal": true,
+    "isOriginal": true
   },
   {
+    "id": "ar_2",
+    "title": "قمرين (Amarain)",
+    "artist": "Amr Diab (عمرو دياب)",
+    "file": "Amr Diab - Amarain.mp3",
+    "category": "Arabic Hits",
+    "tag": "arabic",
+    "cover": "assets/covers/cover_amarain.jpg",
+    "isLocal": true,
+    "isOriginal": true
+  },
+  {
+    "id": "ar_3",
+    "title": "تملي معاك (Tamally Maak)",
+    "artist": "Amr Diab (عمرو دياب)",
+    "file": "Amr Diab - Tamally Maak.mp3",
+    "category": "Arabic Hits",
+    "tag": "arabic",
+    "cover": "assets/covers/cover_tamally_maak.jpg",
+    "isLocal": true,
+    "isOriginal": true
+  },
+  {
+    "id": "ar_4",
+    "title": "البخت (El Bakht)",
+    "artist": "Wegz (ويجز)",
+    "file": "Wegz - El Bakht.mp3",
+    "category": "Arabic Hits",
+    "tag": "arabic",
+    "cover": "assets/covers/cover_el_bakht.jpg",
+    "isLocal": true,
+    "isOriginal": true
+  },
+  {
+    "id": "ar_5",
+    "title": "يا ستار (Ya Sattar)",
+    "artist": "Mohamed Hamaki (محمد حماقي)",
+    "file": "Mohamed Hamaki - Ya Sattar.mp3",
+    "category": "Arabic Hits",
+    "tag": "arabic",
+    "cover": "assets/covers/cover_ya_sattar.jpg",
+    "isLocal": true,
+    "isOriginal": true
+  },
+  {
+    "id": "ar_6",
+    "title": "كان لك معايا (Kan Lak Maaya)",
+    "artist": "Cairokee (كايروكي)",
+    "file": "Cairokee - Kan Lak Maaya.mp3",
+    "category": "Arabic Hits",
+    "tag": "arabic",
+    "cover": "assets/covers/cover_kan_lak_maaya.png",
+    "isLocal": true,
+    "isOriginal": true
+  },
+  {
+    "id": "ar_7",
+    "title": "قصاد بابك",
+    "artist": "Ahmed Kamel (أحمد كامل)",
+    "file": "Ahmed kamel - osad babek أحمد كامل - قصاد بابك (of.m4a",
+    "category": "Arabic Hits",
+    "tag": "arabic",
+    "cover": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&auto=format&fit=crop&q=80",
+    "isLocal": true,
+    "isOriginal": true
+  },
+  {
+    "id": "ar_8",
     "title": "Astronaut in the Ocean (Arabic Ver.)",
     "artist": "Masked Wolf",
-    "file": "@Masked Wolf - Astronaut in the Ocean - Arabic Ver.m4a"
+    "file": "@Masked Wolf - Astronaut in the Ocean - Arabic Ver.m4a",
+    "category": "Arabic Hits",
+    "tag": "arabic",
+    "cover": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=600&auto=format&fit=crop&q=80",
+    "isLocal": true,
+    "isOriginal": true
   },
- 
   {
-    "title": "Hello World",
-    "artist": "Alan Walker & Torine",
-    "file": "Alan Walker & Torine - Hello World (Official Music.m4a"
+    "id": "ar_9",
+    "title": "Arhbo (ارحبوا - كأس العالم)",
+    "artist": "Ooredoo Qatar 2022",
+    "file": "Arhbo – the Ooredoo song for FIFA World Cup Qatar 2022™ in Arabic.m4a",
+    "category": "Arabic Hits",
+    "tag": "arabic",
+    "cover": "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=600&auto=format&fit=crop&q=80",
+    "isLocal": true,
+    "isOriginal": true
   },
   {
-    "title": "Who I Am",
+    "id": "gl_1",
+    "title": "Believer (Original Track)",
+    "artist": "Imagine Dragons",
+    "file": "Imagine Dragons - Believer.m4a",
+    "category": "Rock & Energy",
+    "tag": "energy",
+    "cover": "assets/covers/cover_believer.jpg",
+    "isLocal": true,
+    "isOriginal": true
+  },
+  {
+    "id": "gl_2",
+    "title": "Faded (Original Track)",
     "artist": "Alan Walker",
-    "file": "Alan Walker - Who I Am (Lyrics).m4a"
+    "file": "Alan Walker - Faded.m4a",
+    "category": "Electronic",
+    "tag": "electronic",
+    "cover": "assets/covers/cover_faded.jpg",
+    "isLocal": true,
+    "isOriginal": true
   },
   {
-    "title": "Arhbo (FIFA World Cup Qatar 2022)",
-    "artist": "Ooredoo",
-    "file": "Arhbo – the Ooredoo song for FIFA World Cup Qatar 2022™ in Arabic.m4a"
+    "id": "gym_1",
+    "title": "Disaster (Official Phonk)",
+    "artist": "KSLV Noh",
+    "file": "KSLV - Disaster.m4a",
+    "category": "Workout / Gym",
+    "tag": "gym",
+    "cover": "assets/covers/cover_disaster.jpg",
+    "isLocal": true,
+    "isOriginal": true
   },
   {
-    "title": "Wake Me Up (Egyptian Remix)",
-    "artist": "Avicii",
-    "file": "Avicii - Wake me up (Egyptian local remix)  MUSICS.m4a"
+    "id": "gym_2",
+    "title": "Sahara (Official Phonk)",
+    "artist": "Hensonn",
+    "file": "Hensonn - Sahara.m4a",
+    "category": "Workout / Gym",
+    "tag": "gym",
+    "cover": "assets/covers/cover_sahara.jpg",
+    "isLocal": true,
+    "isOriginal": true
   },
-
   {
+    "id": "gym_3",
+    "title": "Close Eyes (Official Phonk)",
+    "artist": "DVRST",
+    "file": "DVRST - Close Eyes.m4a",
+    "category": "Workout / Gym",
+    "tag": "gym",
+    "cover": "assets/covers/cover_close_eyes.jpg",
+    "isLocal": true,
+    "isOriginal": true
+  },
+  {
+    "id": "gym_4",
+    "title": "Why Not (Official Phonk)",
+    "artist": "Ghostface Playa",
+    "file": "Ghostface Playa - Why Not.m4a",
+    "category": "Workout / Gym",
+    "tag": "gym",
+    "cover": "assets/covers/cover_why_not.jpg",
+    "isLocal": true,
+    "isOriginal": true
+  },
+  {
+    "id": "gym_5",
     "title": "Royalty",
     "artist": "Egzod & Maestro Chives ft. Neoni",
-    "file": "Egzod & Maestro Chives - Royalty (ft. Neoni) [Official Lyric Video].m4a"
+    "file": "Egzod & Maestro Chives - Royalty (ft. Neoni) [Official Lyric Video].m4a",
+    "category": "Workout / Gym",
+    "tag": "energy",
+    "cover": "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=600&auto=format&fit=crop&q=80",
+    "isLocal": true,
+    "isOriginal": true
   },
   {
+    "id": "gym_6",
     "title": "Legends Never Die",
-    "artist": "League of Legends",
-    "file": "Legends Never Die.m4a"
+    "artist": "Against the Current & League of Legends",
+    "file": "Legends Never Die.m4a",
+    "category": "Workout / Gym",
+    "tag": "energy",
+    "cover": "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&auto=format&fit=crop&q=80",
+    "isLocal": true,
+    "isOriginal": true
   },
   {
-    "title": "Play / Unity / Faded (Remix Mashup)",
-    "artist": "Alan Walker, K",
-    "file": "Play  Unity  Faded [Remix Mashup] - Alan Walker, K.m4a"
-  },
-  {
-    "title": "Can't Buy Me Loving (La La La)",
-    "artist": "Rauf & Faik",
-    "file": "Rauf & Faik - Can't buy me loving  La La La (это л.m4a"
-  },
-  {
-    "title": "Я люблю тебя давно",
-    "artist": "Rauf & Faik",
-    "file": "Rauf & Faik - я люблю тебя давно (Official Audio).m4a"
-  },
-  {
-    "title": "Karma",
-    "artist": "Serhat Durmus",
-    "file": "Serhat Durmus - Karma.m4a"
-  },
-  {
-    "title": "Mirror",
-    "artist": "Serhat Durmus",
-    "file": "Serhat Durmus - Mirror.m4a"
-  },
-  {
-    "title": "Türküm",
-    "artist": "Serhat Durmus",
-    "file": "Türküm.m4a"
-  },
-  {
+    "id": "gym_7",
     "title": "See What I've Become",
     "artist": "Zack Hemsey",
-    "file": "Zack Hemsey - _See What I've Become_ copy.m4a"
+    "file": "Zack Hemsey - _See What I've Become_ copy.m4a",
+    "category": "Workout / Gym",
+    "tag": "energy",
+    "cover": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=600&auto=format&fit=crop&q=80",
+    "isLocal": true,
+    "isOriginal": true
   },
   {
-    "title": "Story Music",
-    "artist": "Unknown",
-    "file": "story music.m4a"
-  }, 
-  {
-    "title": "Belki ربما",
-    "artist": "Unknown",
-    "file": "Belki.mp3"
-  },
-   {
-    "title": "Maqamat مقامات",
-    "artist": "Dallo",
-    "file": "Dallo - Maqamat.mp3"
+    "id": "gym_8",
+    "title": "AI Music",
+    "artist": "AI & Future Sounds",
+    "file": "AI Music.mp3",
+    "category": "Workout / Gym",
+    "tag": "gym",
+    "cover": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop&q=80",
+    "isLocal": true,
+    "isOriginal": true
   },
   {
-    "title": "GLORY",
-    "artist": "Unknown",
-    "file": "GLORY.mp3"
+    "id": "el_1",
+    "title": "Hello World",
+    "artist": "Alan Walker & Torine",
+    "file": "Alan Walker & Torine - Hello World (Official Music.m4a",
+    "category": "Electronic",
+    "tag": "electronic",
+    "cover": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&auto=format&fit=crop&q=80",
+    "isLocal": true,
+    "isOriginal": true
   },
   {
-    "title": "Habibi",
-    "artist": "Unknown",
-    "file": "Habibi.mp3"
+    "id": "el_2",
+    "title": "Who I Am",
+    "artist": "Alan Walker",
+    "file": "Alan Walker - Who I Am (Lyrics).m4a",
+    "category": "Electronic",
+    "tag": "electronic",
+    "cover": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600&auto=format&fit=crop&q=80",
+    "isLocal": true,
+    "isOriginal": true
   },
   {
-    "title": "AUFLEYN",
-    "artist": "NNX LXSY",
-    "file": "NNXLXSY-AUFLEYN.mp3"
+    "id": "el_3",
+    "title": "Wake Me Up (Egyptian Remix)",
+    "artist": "Avicii",
+    "file": "Avicii - Wake me up (Egyptian local remix)  MUSICS.m4a",
+    "category": "Electronic",
+    "tag": "electronic",
+    "cover": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&auto=format&fit=crop&q=80",
+    "isLocal": true,
+    "isOriginal": true
   },
   {
-    "title": "Konosoo",
-    "artist": "NNX LXSY",
-    "file": "NNX LXSY - Konosoo.mp3"
+    "id": "el_4",
+    "title": "Play / Unity / Faded (Mashup)",
+    "artist": "Alan Walker & K-391",
+    "file": "Play  Unity  Faded [Remix Mashup] - Alan Walker, K.m4a",
+    "category": "Electronic",
+    "tag": "electronic",
+    "cover": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&auto=format&fit=crop&q=80",
+    "isLocal": true,
+    "isOriginal": true
   },
   {
-    "title": "Ramadan Sound Track",
-    "artist": "Unknown",
-    "file": "Ramadan Sound Track.mp3"
+    "id": "el_5",
+    "title": "Karma",
+    "artist": "Serhat Durmus",
+    "file": "Serhat Durmus - Karma.m4a",
+    "category": "Trap / Bass",
+    "tag": "bass",
+    "cover": "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=600&auto=format&fit=crop&q=80",
+    "isLocal": true,
+    "isOriginal": true
   },
   {
-    "title": "Hardstyle Remix",
-    "artist": "Unknown",
-    "file": "Safe-And-Sound-Hardstyle-Remix_Media.mp3"
+    "id": "el_6",
+    "title": "Mirror",
+    "artist": "Serhat Durmus",
+    "file": "Serhat Durmus - Mirror.m4a",
+    "category": "Trap / Bass",
+    "tag": "bass",
+    "cover": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&auto=format&fit=crop&q=80",
+    "isLocal": true,
+    "isOriginal": true
   },
   {
-    "title": "Free Instrum",
-    "artist": "Unknown",
-    "file": "TikTok-No-Copyright-Free-Instrum_Media.mp3"
-  },
-   {
-    "title": "Allo (Choir Version) - Rouh Al Sharq",
-    "artist": "Unknown",
-    "file": "Allo (Choir Version) - Rouh Al Sharq.mp3"
-  },
-   {
-    "title": "Bella Ciao - La Casa De Papel (Money Heist) [4K] - JoeFancy",
-    "artist": "Unknown",
-    "file": "Bella Ciao - La Casa De Papel (Money Heist) [4K] - JoeFancy.mp3"
-  },
-   {
-    "title": "Btmanna Ansak - Sherine",
-    "artist": "Unknown",
-    "file": "Btmanna Ansak - Sherine.mp3"
-  },
-   {
-    "title": "HANA - Fi 7eta Tanya  COVER  هنا يسري - كوفر في حتة تانية - HANA",
-    "artist": "Unknown",
-    "file": "HANA - Fi 7eta Tanya  COVER  هنا يسري - كوفر في حتة تانية - HANA.mp3"
-  },
-   {
-    "title": "papaouiti",
-    "artist": "Unknown",
-    "file": "papaouiti.mp3"
-  },
-   {
-    "title": "Ramy Ayach - Qesset Hob ( Exclusive Music Video )  2019  رامى عياش - قصة حب - Ramy Ayach",
-    "artist": "Unknown",
-    "file": "Ramy Ayach - Qesset Hob ( Exclusive Music Video )  2019  رامى عياش - قصة حب - Ramy Ayach.mp3"
-  },
-   {
-    "title": "انا فلسطيني",
-    "artist": "Unknown",
-    "file": "اوتشا - انا فلسطيني من راب شارع فلسطين - Rap Shar3  راب شارع.mp3"
-  },
-   {
-    "title": "يمكن خير  كورال روح الشرق - Rouh Alsharq Choir - كورال روح الشرق",
-    "artist": "Unknown",
-    "file": "يمكن خير  كورال روح الشرق - Rouh Alsharq Choir - كورال روح الشرق.mp3"
-  },
-   {
-    "title": "Gym Motivation Music",
-    "artist": "Motivation",
-    "file": "Gym Motivation Music - Best Gym Workout Songs - Gym Music - 7 Power Fitness.mp3"
+    "id": "el_7",
+    "title": "Türküm",
+    "artist": "Serhat Durmus",
+    "file": "Serhat Durmus - Türküm.m4a",
+    "category": "Trap / Bass",
+    "tag": "bass",
+    "cover": "https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=600&auto=format&fit=crop&q=80",
+    "isLocal": true,
+    "isOriginal": true
   },
   {
-    "title": "BELLA CIAO (AFRO MIX REMIX)",
-    "artist": "Afro Mix",
-    "file": "BELLA CIAO (AFRO MIX REMIX) 🔥 - Afro Mix Remix.mp3"
+    "id": "ch_1",
+    "title": "Belki (ربما)",
+    "artist": "Dedublüman",
+    "file": "Dedublüman - Belki  ربما.m4a",
+    "category": "Chill & Acoustic",
+    "tag": "chill",
+    "cover": "https://images.unsplash.com/photo-1445985543470-41fdd6ce388d?w=600&auto=format&fit=crop&q=80",
+    "isLocal": true,
+    "isOriginal": true
   },
   {
-    "title": "Si Ai (Afro House)",
-    "artist": "BassBeatHunterz",
-    "file": "Si Ai (Afro House) - BassBeatHunterz.mp3"
+    "id": "ch_2",
+    "title": "Can't Buy Me Loving / La La La",
+    "artist": "Rauf & Faik",
+    "file": "Rauf & Faik - Can't buy me loving  La La La (это л.m4a",
+    "category": "Chill & Acoustic",
+    "tag": "chill",
+    "cover": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=600&auto=format&fit=crop&q=80",
+    "isLocal": true,
+    "isOriginal": true
   },
   {
-    "title": "We Are Still Here",
-    "artist": "AI",
-    "file": "We Are Still Here - Maryam Abdel Aziz.mp3"
-  },
-   {
-    "title": "SQUID GAME Pink Soldiers",
-    "artist": "Soner Karaca Remix",
-    "file": "SQUID GAME Pink Soldiers (Soner Karaca Remix)  Long Version - HouseMusicHD.mp3"
-  },
-  {
-    "title": "Maddah 4-Devil's Dance",
-    "artist": "Kareem Abdelwahab",
-    "file": "Maddah 4-Devil's Dance- Kareem Abdelwahab  المداح 4  - لاقيناك حابس (ترنيمة الجن) -  كريم عبدالوهاب - O2music.mp3"
+    "id": "ch_3",
+    "title": "я люблю тебя давно",
+    "artist": "Rauf & Faik",
+    "file": "Rauf & Faik - я люблю тебя давно (Official Audio).m4a",
+    "category": "Chill & Acoustic",
+    "tag": "chill",
+    "cover": "https://images.unsplash.com/photo-1520523839898-5071270275be?w=600&auto=format&fit=crop&q=80",
+    "isLocal": true,
+    "isOriginal": true
   },
   {
+    "id": "ch_4",
+    "title": "Story Music (Dramatic Sound)",
+    "artist": "Cinematic Sound",
+    "file": "story music.m4a",
+    "category": "Chill & Acoustic",
+    "tag": "chill",
+    "cover": "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=600&auto=format&fit=crop&q=80",
+    "isLocal": true,
+    "isOriginal": true
+  },
+  {
+    "id": "ch_5",
+    "title": "أجمل أغنية روسية عن الفراق",
+    "artist": "Russian Soul",
+    "file": "اجمل اغنيه روسيه عن الفراق اتحداك اذا ما تعيدها️️.m4a",
+    "category": "Chill & Acoustic",
+    "tag": "chill",
+    "cover": "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=600&auto=format&fit=crop&q=80",
+    "isLocal": true,
+    "isOriginal": true
+  },
+  {
+    "id": "on_1",
     "title": "Unstoppable",
     "artist": "Sia",
-    "file": "Sia - Unstoppable (Lyrics) - Pizza Music.mp3"
-  },
-  {
-    "title": "Koabi",
-    "artist": "Rauf & Faik",
-    "file": "اجمل اغنيه روسيه عن الفراق اتحداك اذا ما تعيدها️️.m4a"
+    "streamUrl": "https://aac.saavncdn.com/514/0ca9951ee9850c656e0c4977bf4d1bc9_160.mp4",
+    "category": "Global Hits",
+    "tag": "energy",
+    "cover": "https://c.saavncdn.com/514/This-Is-Acting-Deluxe-Version-English-2016-500x500.jpg",
+    "isLocal": false,
+    "isOnline": true,
+    "isOriginal": true
   }
 ]
