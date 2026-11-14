@@ -1,11 +1,11 @@
 {
-  "name": "VIBE 2.0 Music & Gym Player",
-  "short_name": "VIBE",
-  "description": "Ultra-fast offline & streaming music player with Gym Mode, background playback & smart caching",
+  "name": "VIBE Studio — Music & Gym Performance",
+  "short_name": "VIBE Studio",
+  "description": "Ultra-fast streaming & offline music player with tempo-matched gym mixes, paired exercises per track & lock-screen playback",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#08080e",
-  "theme_color": "#08080e",
+  "background_color": "#08090d",
+  "theme_color": "#08090d",
   "orientation": "any",
   "categories": ["music", "entertainment", "fitness"],
   "icons": [

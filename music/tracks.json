@@ -8,7 +8,22 @@
     "tag": "arabic",
     "cover": "assets/covers/cover_nour_el_ain.jpg",
     "isLocal": true,
-    "isOriginal": true
+    "isOriginal": true,
+    "bpm": 122,
+    "intensity": "warmup",
+    "exercise": {
+      "id": "incline_walk",
+      "zone": "cardio",
+      "nameAr": "مشي مائل أو إحماء ديناميكي",
+      "nameEn": "Incline Treadmill Warm-Up",
+      "muscleAr": "القلب والساقين",
+      "muscleEn": "Cardio & Lower Body",
+      "sets": 1,
+      "reps": "8 min",
+      "restSec": 45,
+      "tempoNoteAr": "خطوة ثابتة منتظمة مع تنفس عميق",
+      "tempoNoteEn": "Steady rhythmic pace to elevate core temp"
+    }
   },
   {
     "id": "ar_2",
@@ -19,7 +34,22 @@
     "tag": "arabic",
     "cover": "assets/covers/cover_amarain.jpg",
     "isLocal": true,
-    "isOriginal": true
+    "isOriginal": true,
+    "bpm": 118,
+    "intensity": "warmup",
+    "exercise": {
+      "id": "lat_pulldown",
+      "zone": "pull",
+      "nameAr": "سحب عالي واسع للظهر",
+      "nameEn": "Wide-Grip Lat Pulldown",
+      "muscleAr": "الظهر العريض",
+      "muscleEn": "Lats & Upper Back",
+      "sets": 4,
+      "reps": "10-12",
+      "restSec": 75,
+      "tempoNoteAr": "عصر عضلة الظهر ثانية عند الأسفل",
+      "tempoNoteEn": "1s scapular squeeze at peak contraction"
+    }
   },
   {
     "id": "ar_3",
@@ -30,7 +60,22 @@
     "tag": "arabic",
     "cover": "assets/covers/cover_tamally_maak.jpg",
     "isLocal": true,
-    "isOriginal": true
+    "isOriginal": true,
+    "bpm": 96,
+    "intensity": "cooldown",
+    "exercise": {
+      "id": "mobility_flow",
+      "zone": "recovery",
+      "nameAr": "إطالة ومرونة المفاصل",
+      "nameEn": "Post-Workout Mobility Stretch",
+      "muscleAr": "استشفاء عضلي",
+      "muscleEn": "Full Body Recovery",
+      "sets": 3,
+      "reps": "45 sec",
+      "restSec": 30,
+      "tempoNoteAr": "شهيق ٤ ثوانٍ وزفير بطيء للهدوء",
+      "tempoNoteEn": "Deep diaphragmatic breaths per hold"
+    }
   },
   {
     "id": "ar_4",
@@ -41,7 +86,22 @@
     "tag": "arabic",
     "cover": "assets/covers/cover_el_bakht.jpg",
     "isLocal": true,
-    "isOriginal": true
+    "isOriginal": true,
+    "bpm": 128,
+    "intensity": "strength",
+    "exercise": {
+      "id": "incline_db_press",
+      "zone": "push",
+      "nameAr": "تجميع صدر عالي بالدامبل",
+      "nameEn": "Incline Dumbbell Press",
+      "muscleAr": "الصدر العالي",
+      "muscleEn": "Upper Chest & Triceps",
+      "sets": 4,
+      "reps": "8-10",
+      "restSec": 90,
+      "tempoNoteAr": "تحكم في الهبوط ثم دفع ثابت",
+      "tempoNoteEn": "Control descent, drive smoothly on the beat"
+    }
   },
   {
     "id": "ar_5",
@@ -52,7 +112,22 @@
     "tag": "arabic",
     "cover": "assets/covers/cover_ya_sattar.jpg",
     "isLocal": true,
-    "isOriginal": true
+    "isOriginal": true,
+    "bpm": 134,
+    "intensity": "cardio",
+    "exercise": {
+      "id": "kettlebell_swing",
+      "zone": "cardio",
+      "nameAr": "مرجحة كيتل بيل أو حبل سرعة",
+      "nameEn": "Kettlebell Swings / Jump Rope",
+      "muscleAr": "الكور والأرداف والقلب",
+      "muscleEn": "Posterior Chain & Conditioning",
+      "sets": 4,
+      "reps": "20",
+      "restSec": 45,
+      "tempoNoteAr": "دفع قوي من الحوض على الإيقاع",
+      "tempoNoteEn": "Crisp hip-hinge snap timed with snare"
+    }
   },
   {
     "id": "ar_6",
@@ -63,7 +138,22 @@
     "tag": "arabic",
     "cover": "assets/covers/cover_kan_lak_maaya.png",
     "isLocal": true,
-    "isOriginal": true
+    "isOriginal": true,
+    "bpm": 112,
+    "intensity": "warmup",
+    "exercise": {
+      "id": "cable_fly",
+      "zone": "push",
+      "nameAr": "تفتيح كابل للصدر",
+      "nameEn": "Cable Chest Fly",
+      "muscleAr": "الصدر الداخلي",
+      "muscleEn": "Inner Pecs",
+      "sets": 3,
+      "reps": "12-15",
+      "restSec": 60,
+      "tempoNoteAr": "حركة دائرية واسعة بدون اندفاع",
+      "tempoNoteEn": "Smooth arc, maintain constant cable tension"
+    }
   },
   {
     "id": "ar_7",
@@ -74,7 +164,22 @@
     "tag": "arabic",
     "cover": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&auto=format&fit=crop&q=80",
     "isLocal": true,
-    "isOriginal": true
+    "isOriginal": true,
+    "bpm": 92,
+    "intensity": "cooldown",
+    "exercise": {
+      "id": "plank_breath",
+      "zone": "core",
+      "nameAr": "بلانك ثابت وإطالة أسفل الظهر",
+      "nameEn": "Isometric Plank & Spine Decompression",
+      "muscleAr": "البطن والعمود الفقري",
+      "muscleEn": "Core & Lower Back",
+      "sets": 3,
+      "reps": "60 sec",
+      "restSec": 45,
+      "tempoNoteAr": "شد البطن طوال المدة مع ثبات الحوض",
+      "tempoNoteEn": "Brace midline tight without sagging"
+    }
   },
   {
     "id": "ar_8",
@@ -85,7 +190,22 @@
     "tag": "arabic",
     "cover": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=600&auto=format&fit=crop&q=80",
     "isLocal": true,
-    "isOriginal": true
+    "isOriginal": true,
+    "bpm": 150,
+    "intensity": "cardio",
+    "exercise": {
+      "id": "battle_ropes",
+      "zone": "cardio",
+      "nameAr": "حبال المقاومة المتفجرة",
+      "nameEn": "Explosive Battle Ropes",
+      "muscleAr": "الأكتاف والكارديو",
+      "muscleEn": "Delts & HIIT Endurance",
+      "sets": 5,
+      "reps": "30 sec",
+      "restSec": 30,
+      "tempoNoteAr": "ضربات متناوبة بأقصى سرعة حتى نهاية الجملة",
+      "tempoNoteEn": "Alternating high-velocity waves"
+    }
   },
   {
     "id": "ar_9",
@@ -94,9 +214,24 @@
     "file": "Arhbo – the Ooredoo song for FIFA World Cup Qatar 2022™ in Arabic.m4a",
     "category": "Arabic Hits",
     "tag": "arabic",
-    "cover": "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=600&auto=format&fit=crop&q=80",
+    "cover": "assets/covers/cover_arhbo.jpg",
     "isLocal": true,
-    "isOriginal": true
+    "isOriginal": true,
+    "bpm": 124,
+    "intensity": "warmup",
+    "exercise": {
+      "id": "cycling_sprint",
+      "zone": "cardio",
+      "nameAr": "تسخين على الدراجة أو الإليبتيكال",
+      "nameEn": "Stationary Bike Tempo Warm-Up",
+      "muscleAr": "الأرجل والقلب",
+      "muscleEn": "Quads & Cardiovascular Prep",
+      "sets": 1,
+      "reps": "6 min",
+      "restSec": 45,
+      "tempoNoteAr": "زيادة المقاومة تدريجياً مع الدروب",
+      "tempoNoteEn": "Progressive cadence ramp-up"
+    }
   },
   {
     "id": "gl_1",
@@ -107,7 +242,22 @@
     "tag": "energy",
     "cover": "assets/covers/cover_believer.jpg",
     "isLocal": true,
-    "isOriginal": true
+    "isOriginal": true,
+    "bpm": 125,
+    "intensity": "strength",
+    "exercise": {
+      "id": "barbell_squat",
+      "zone": "legs",
+      "nameAr": "سكوات حر بالبار (الأرجل)",
+      "nameEn": "Barbell Back Squat",
+      "muscleAr": "الأفخاذ الأمامية والأرداف",
+      "muscleEn": "Quads, Glutes & Core",
+      "sets": 4,
+      "reps": "6-8",
+      "restSec": 120,
+      "tempoNoteAr": "ثبات تحت الوزن عند الكورس وانفجار للأعلى",
+      "tempoNoteEn": "Brace core before descent, explode up on chorus"
+    }
   },
   {
     "id": "gl_2",
@@ -118,7 +268,22 @@
     "tag": "electronic",
     "cover": "assets/covers/cover_faded.jpg",
     "isLocal": true,
-    "isOriginal": true
+    "isOriginal": true,
+    "bpm": 90,
+    "intensity": "cooldown",
+    "exercise": {
+      "id": "face_pull",
+      "zone": "pull",
+      "nameAr": "سحب حبل للكتف الخلفي وتركيز ذهني",
+      "nameEn": "Rope Face Pulls & Finisher",
+      "muscleAr": "الكتف الخلفي والمثلثات",
+      "muscleEn": "Rear Delts & Rotator Cuff",
+      "sets": 3,
+      "reps": "15",
+      "restSec": 45,
+      "tempoNoteAr": "تحكم كامل وثبات المرفق بمستوى الكتف",
+      "tempoNoteEn": "External rotation squeeze, zero momentum"
+    }
   },
   {
     "id": "gym_1",
@@ -129,7 +294,22 @@
     "tag": "gym",
     "cover": "assets/covers/cover_disaster.jpg",
     "isLocal": true,
-    "isOriginal": true
+    "isOriginal": true,
+    "bpm": 148,
+    "intensity": "peak",
+    "exercise": {
+      "id": "deadlift_pr",
+      "zone": "pull",
+      "nameAr": "رفعة مميتة ثقيلة (Deadlift PR)",
+      "nameEn": "Heavy Barbell Deadlift (PR)",
+      "muscleAr": "الظهر السفلي والأوتار",
+      "muscleEn": "Full Posterior Chain",
+      "sets": 5,
+      "reps": "3-5",
+      "restSec": 120,
+      "tempoNoteAr": "شد العمود الفقري وانتظر لحظة الدروب للسحب",
+      "tempoNoteEn": "Set lats tight and pull as the bass drops"
+    }
   },
   {
     "id": "gym_2",
@@ -140,7 +320,22 @@
     "tag": "gym",
     "cover": "assets/covers/cover_sahara.jpg",
     "isLocal": true,
-    "isOriginal": true
+    "isOriginal": true,
+    "bpm": 144,
+    "intensity": "peak",
+    "exercise": {
+      "id": "flat_bench_heavy",
+      "zone": "push",
+      "nameAr": "بنش برس ثقيل (أعلى وزن)",
+      "nameEn": "Heavy Flat Bench Press",
+      "muscleAr": "الصدر والترايسبس",
+      "muscleEn": "Pectorals & Triceps",
+      "sets": 4,
+      "reps": "5-6",
+      "restSec": 120,
+      "tempoNoteAr": "أقدام ثابتة على الأرض وضغط متفجر",
+      "tempoNoteEn": "Leg drive engaged, powerful lockout"
+    }
   },
   {
     "id": "gym_3",
@@ -151,7 +346,22 @@
     "tag": "gym",
     "cover": "assets/covers/cover_close_eyes.jpg",
     "isLocal": true,
-    "isOriginal": true
+    "isOriginal": true,
+    "bpm": 136,
+    "intensity": "strength",
+    "exercise": {
+      "id": "tbar_row",
+      "zone": "pull",
+      "nameAr": "تجديف بار تي أو دامبل ثقيل",
+      "nameEn": "Heavy Barbell / Dumbbell Row",
+      "muscleAr": "سماكة الظهر",
+      "muscleEn": "Mid Back & Rhomboids",
+      "sets": 4,
+      "reps": "8-10",
+      "restSec": 90,
+      "tempoNoteAr": "اسحب بالمرفق للخلف بدون مرجحة",
+      "tempoNoteEn": "Pull elbows past torso with strict posture"
+    }
   },
   {
     "id": "gym_4",
@@ -162,7 +372,22 @@
     "tag": "gym",
     "cover": "assets/covers/cover_why_not.jpg",
     "isLocal": true,
-    "isOriginal": true
+    "isOriginal": true,
+    "bpm": 146,
+    "intensity": "peak",
+    "exercise": {
+      "id": "ohp_military",
+      "zone": "push",
+      "nameAr": "ضغط كتف عسكري بالبار",
+      "nameEn": "Standing Overhead Barbell Press",
+      "muscleAr": "الأكتاف والترايسبس",
+      "muscleEn": "Shoulders & Upper Traps",
+      "sets": 4,
+      "reps": "6-8",
+      "restSec": 90,
+      "tempoNoteAr": "شد الأرداف والبطن لحماية أسفل الظهر",
+      "tempoNoteEn": "Lock glutes and core, drive head through"
+    }
   },
   {
     "id": "gym_5",
@@ -173,7 +398,22 @@
     "tag": "energy",
     "cover": "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=600&auto=format&fit=crop&q=80",
     "isLocal": true,
-    "isOriginal": true
+    "isOriginal": true,
+    "bpm": 142,
+    "intensity": "peak",
+    "exercise": {
+      "id": "weighted_dips",
+      "zone": "push",
+      "nameAr": "متوازي بوزن للصدر والترايسبس",
+      "nameEn": "Weighted Chest & Triceps Dips",
+      "muscleAr": "الصدر السفلي والترايسبس",
+      "muscleEn": "Lower Chest & Triceps",
+      "sets": 4,
+      "reps": "8-10",
+      "restSec": 90,
+      "tempoNoteAr": "هبوط عميق بميلان خفيف للأمام",
+      "tempoNoteEn": "Controlled deep stretch to 90 deg elbows"
+    }
   },
   {
     "id": "gym_6",
@@ -184,7 +424,22 @@
     "tag": "energy",
     "cover": "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&auto=format&fit=crop&q=80",
     "isLocal": true,
-    "isOriginal": true
+    "isOriginal": true,
+    "bpm": 140,
+    "intensity": "peak",
+    "exercise": {
+      "id": "leg_press",
+      "zone": "legs",
+      "nameAr": "دفع أرجل ثقيل على الجهاز",
+      "nameEn": "Heavy 45° Leg Press",
+      "muscleAr": "الأفخاذ والأرداف",
+      "muscleEn": "Quads & Glutes",
+      "sets": 4,
+      "reps": "10-12",
+      "restSec": 90,
+      "tempoNoteAr": "لا تغلق الركبة بالكامل في نهاية التكرار",
+      "tempoNoteEn": "Full depth without locking knees at top"
+    }
   },
   {
     "id": "gym_7",
@@ -195,7 +450,22 @@
     "tag": "energy",
     "cover": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=600&auto=format&fit=crop&q=80",
     "isLocal": true,
-    "isOriginal": true
+    "isOriginal": true,
+    "bpm": 130,
+    "intensity": "strength",
+    "exercise": {
+      "id": "romanian_dl",
+      "zone": "legs",
+      "nameAr": "ديدليفت روماني للأوتار",
+      "nameEn": "Romanian Deadlift (RDL)",
+      "muscleAr": "أوتار الفخذ والأرداف",
+      "muscleEn": "Hamstrings & Glutes",
+      "sets": 4,
+      "reps": "8-10",
+      "restSec": 90,
+      "tempoNoteAr": "ادفع الحوض للخلف حتى أقصى تمدد",
+      "tempoNoteEn": "Slow 3s stretch down to mid-shin"
+    }
   },
   {
     "id": "gym_8",
@@ -206,7 +476,22 @@
     "tag": "gym",
     "cover": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&auto=format&fit=crop&q=80",
     "isLocal": true,
-    "isOriginal": true
+    "isOriginal": true,
+    "bpm": 152,
+    "intensity": "cardio",
+    "exercise": {
+      "id": "hiit_sprint",
+      "zone": "cardio",
+      "nameAr": "تاباتا / سبرينت عالي الشدة",
+      "nameEn": "Tabata Assault Bike / Sprint",
+      "muscleAr": "حرق دهون وكارديو",
+      "muscleEn": "VO2 Max & Conditioning",
+      "sets": 6,
+      "reps": "45s/15s",
+      "restSec": 30,
+      "tempoNoteAr": "أقصى جهد ٤٥ ثانية ثم ١٥ ثانية التزام بالتنفس",
+      "tempoNoteEn": "All-out effort during work bell"
+    }
   },
   {
     "id": "el_1",
@@ -217,7 +502,22 @@
     "tag": "electronic",
     "cover": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&auto=format&fit=crop&q=80",
     "isLocal": true,
-    "isOriginal": true
+    "isOriginal": true,
+    "bpm": 126,
+    "intensity": "strength",
+    "exercise": {
+      "id": "lateral_raise",
+      "zone": "push",
+      "nameAr": "رفرفة جانبي للكتف بالدامبل",
+      "nameEn": "Seated Dumbbell Lateral Raise",
+      "muscleAr": "الكتف الجانبي",
+      "muscleEn": "Lateral Deltoids",
+      "sets": 4,
+      "reps": "12-15",
+      "restSec": 60,
+      "tempoNoteAr": "ارفَع حتى مستوى الكتف بنزول بطيء",
+      "tempoNoteEn": "Lead with elbows, zero trap shrugging"
+    }
   },
   {
     "id": "el_2",
@@ -228,7 +528,22 @@
     "tag": "electronic",
     "cover": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600&auto=format&fit=crop&q=80",
     "isLocal": true,
-    "isOriginal": true
+    "isOriginal": true,
+    "bpm": 120,
+    "intensity": "warmup",
+    "exercise": {
+      "id": "preacher_curl",
+      "zone": "arms",
+      "nameAr": "بايسبس على البنش المائل",
+      "nameEn": "Incline Dumbbell Bicep Curl",
+      "muscleAr": "البايسبس",
+      "muscleEn": "Long-Head Biceps",
+      "sets": 3,
+      "reps": "10-12",
+      "restSec": 60,
+      "tempoNoteAr": "تمدد كامل في الأسفل وتركيز في الانقباض",
+      "tempoNoteEn": "Stretch bottom fully, keep elbows pinned"
+    }
   },
   {
     "id": "el_3",
@@ -239,7 +554,22 @@
     "tag": "electronic",
     "cover": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&auto=format&fit=crop&q=80",
     "isLocal": true,
-    "isOriginal": true
+    "isOriginal": true,
+    "bpm": 128,
+    "intensity": "cardio",
+    "exercise": {
+      "id": "box_jumps",
+      "zone": "cardio",
+      "nameAr": "قفز الصندوق أو لانجز متحرك",
+      "nameEn": "Walking Lunges / Box Step-Ups",
+      "muscleAr": "الأرجل والرشاقة",
+      "muscleEn": "Quads, Glutes & Agility",
+      "sets": 3,
+      "reps": "16 steps",
+      "restSec": 60,
+      "tempoNoteAr": "خطوة ثابتة ومتوازنة على الإيقاع",
+      "tempoNoteEn": "Smooth rhythm step after step"
+    }
   },
   {
     "id": "el_4",
@@ -250,7 +580,22 @@
     "tag": "electronic",
     "cover": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&auto=format&fit=crop&q=80",
     "isLocal": true,
-    "isOriginal": true
+    "isOriginal": true,
+    "bpm": 135,
+    "intensity": "cardio",
+    "exercise": {
+      "id": "rope_pushdown",
+      "zone": "arms",
+      "nameAr": "دفع حبل ترايسبس سوبر سيت",
+      "nameEn": "Cable Rope Triceps Pushdown",
+      "muscleAr": "الترايسبس",
+      "muscleEn": "Lateral & Long Triceps Head",
+      "sets": 4,
+      "reps": "12-15",
+      "restSec": 60,
+      "tempoNoteAr": "افصل طرفي الحبل في الأسفل لعصر العضلة",
+      "tempoNoteEn": "Flare rope apart at full elbow extension"
+    }
   },
   {
     "id": "el_5",
@@ -261,7 +606,22 @@
     "tag": "bass",
     "cover": "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=600&auto=format&fit=crop&q=80",
     "isLocal": true,
-    "isOriginal": true
+    "isOriginal": true,
+    "bpm": 138,
+    "intensity": "strength",
+    "exercise": {
+      "id": "seated_cable_row",
+      "zone": "pull",
+      "nameAr": "سحب أرضي ضيق للظهر",
+      "nameEn": "Seated Close-Grip Cable Row",
+      "muscleAr": "منتصف الظهر",
+      "muscleEn": "Mid Back & Lats",
+      "sets": 4,
+      "reps": "10-12",
+      "restSec": 75,
+      "tempoNoteAr": "صدر مرفوع وسحب تجاه السرة",
+      "tempoNoteEn": "Keep chest tall, pull handles to lower ribs"
+    }
   },
   {
     "id": "el_6",
@@ -272,7 +632,22 @@
     "tag": "bass",
     "cover": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=600&auto=format&fit=crop&q=80",
     "isLocal": true,
-    "isOriginal": true
+    "isOriginal": true,
+    "bpm": 132,
+    "intensity": "strength",
+    "exercise": {
+      "id": "bulgarian_split",
+      "zone": "legs",
+      "nameAr": "بلجارين سبليت سكوات",
+      "nameEn": "Bulgarian Split Squat",
+      "muscleAr": "أفخاذ وأرداف أحادي",
+      "muscleEn": "Unilateral Quads & Glutes",
+      "sets": 3,
+      "reps": "10/leg",
+      "restSec": 75,
+      "tempoNoteAr": "ركز الضغط في كعب القدم الأمامية",
+      "tempoNoteEn": "Control knee tracking over mid-foot"
+    }
   },
   {
     "id": "el_7",
@@ -283,7 +658,22 @@
     "tag": "bass",
     "cover": "https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=600&auto=format&fit=crop&q=80",
     "isLocal": true,
-    "isOriginal": true
+    "isOriginal": true,
+    "bpm": 140,
+    "intensity": "peak",
+    "exercise": {
+      "id": "hammer_curl_superset",
+      "zone": "arms",
+      "nameAr": "هامر كيرل ثقيل للبايسبس والساعد",
+      "nameEn": "Heavy Dumbbell Hammer Curl",
+      "muscleAr": "البايسبس والساعد",
+      "muscleEn": "Brachialis & Forearms",
+      "sets": 4,
+      "reps": "10-12",
+      "restSec": 60,
+      "tempoNoteAr": "ثبات المرفقين بجانب الجسم تماماً",
+      "tempoNoteEn": "Zero body swing, squeeze peak 1s"
+    }
   },
   {
     "id": "ch_1",
@@ -292,9 +682,24 @@
     "file": "Dedublüman - Belki  ربما.m4a",
     "category": "Chill & Acoustic",
     "tag": "chill",
-    "cover": "https://images.unsplash.com/photo-1445985543470-41fdd6ce388d?w=600&auto=format&fit=crop&q=80",
+    "cover": "assets/covers/cover_belki.jpg",
     "isLocal": true,
-    "isOriginal": true
+    "isOriginal": true,
+    "bpm": 98,
+    "intensity": "cooldown",
+    "exercise": {
+      "id": "calf_raise",
+      "zone": "legs",
+      "nameAr": "سمانة بطيئة + استطالة",
+      "nameEn": "Slow Tempo Calf Raises",
+      "muscleAr": "السمانة",
+      "muscleEn": "Gastrocnemius & Soleus",
+      "sets": 4,
+      "reps": "15",
+      "restSec": 45,
+      "tempoNoteAr": "توقف ثانيتين في الأسفل لمنع الارتداد",
+      "tempoNoteEn": "2s pause in bottom stretch"
+    }
   },
   {
     "id": "ch_2",
@@ -305,7 +710,22 @@
     "tag": "chill",
     "cover": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=600&auto=format&fit=crop&q=80",
     "isLocal": true,
-    "isOriginal": true
+    "isOriginal": true,
+    "bpm": 106,
+    "intensity": "cooldown",
+    "exercise": {
+      "id": "cable_crunch",
+      "zone": "core",
+      "nameAr": "طحن بطن بالكابل الثقيل",
+      "nameEn": "Kneeling Cable Crunch",
+      "muscleAr": "عضلات البطن",
+      "muscleEn": "Rectus Abdominis",
+      "sets": 4,
+      "reps": "15-20",
+      "restSec": 45,
+      "tempoNoteAr": "تقوس العمود الفقري للداخل وليس ثني الحوض",
+      "tempoNoteEn": "Curl ribs toward pelvis on exhale"
+    }
   },
   {
     "id": "ch_3",
@@ -314,9 +734,24 @@
     "file": "Rauf & Faik - я люблю тебя давно (Official Audio).m4a",
     "category": "Chill & Acoustic",
     "tag": "chill",
-    "cover": "https://images.unsplash.com/photo-1520523839898-5071270275be?w=600&auto=format&fit=crop&q=80",
+    "cover": "assets/covers/cover_rauf_faik.jpg",
     "isLocal": true,
-    "isOriginal": true
+    "isOriginal": true,
+    "bpm": 95,
+    "intensity": "cooldown",
+    "exercise": {
+      "id": "hanging_leg_raise",
+      "zone": "core",
+      "nameAr": "رفع الأرجل على العقلة للبطن",
+      "nameEn": "Hanging Knee / Leg Raise",
+      "muscleAr": "البطن السفلي",
+      "muscleEn": "Lower Abs & Hip Flexors",
+      "sets": 3,
+      "reps": "12-15",
+      "restSec": 60,
+      "tempoNoteAr": "بدون تأرجح وبنزول بطيء",
+      "tempoNoteEn": "Tilt pelvis upward at top of rep"
+    }
   },
   {
     "id": "ch_4",
@@ -327,7 +762,22 @@
     "tag": "chill",
     "cover": "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=600&auto=format&fit=crop&q=80",
     "isLocal": true,
-    "isOriginal": true
+    "isOriginal": true,
+    "bpm": 88,
+    "intensity": "cooldown",
+    "exercise": {
+      "id": "foam_roller",
+      "zone": "recovery",
+      "nameAr": "تدليك الفوم رولر والتهدئة",
+      "nameEn": "Foam Rolling & Cool Down",
+      "muscleAr": "الظهر والساقين",
+      "muscleEn": "Myofascial Recovery",
+      "sets": 2,
+      "reps": "3 min",
+      "restSec": 30,
+      "tempoNoteAr": "حركة بطيئة على نقاط الشد العضلي",
+      "tempoNoteEn": "Slow passes over quads, lats & IT band"
+    }
   },
   {
     "id": "ch_5",
@@ -338,7 +788,22 @@
     "tag": "chill",
     "cover": "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=600&auto=format&fit=crop&q=80",
     "isLocal": true,
-    "isOriginal": true
+    "isOriginal": true,
+    "bpm": 84,
+    "intensity": "cooldown",
+    "exercise": {
+      "id": "deep_stretch",
+      "zone": "recovery",
+      "nameAr": "إطالة الأوتار والكتف بعد التمرين",
+      "nameEn": "Static Hamstring & Shoulder Stretch",
+      "muscleAr": "استرخاء عضلي",
+      "muscleEn": "Flexibility & Recovery",
+      "sets": 3,
+      "reps": "40 sec",
+      "restSec": 20,
+      "tempoNoteAr": "ارخِ العضلة مع كل زفير عميق",
+      "tempoNoteEn": "Hold pain-free end range calmly"
+    }
   },
   {
     "id": "on_1",
@@ -347,9 +812,24 @@
     "streamUrl": "https://aac.saavncdn.com/514/0ca9951ee9850c656e0c4977bf4d1bc9_160.mp4",
     "category": "Global Hits",
     "tag": "energy",
-    "cover": "https://c.saavncdn.com/514/This-Is-Acting-Deluxe-Version-English-2016-500x500.jpg",
+    "cover": "assets/covers/cover_unstoppable.jpg",
     "isLocal": false,
     "isOnline": true,
-    "isOriginal": true
+    "isOriginal": true,
+    "bpm": 156,
+    "intensity": "cardio",
+    "exercise": {
+      "id": "treadmill_hiit",
+      "zone": "cardio",
+      "nameAr": "جري متقطع عالي الشدة (HIIT)",
+      "nameEn": "Peak Sprint Intervals",
+      "muscleAr": "القلب والتحمل",
+      "muscleEn": "Full Body Conditioning",
+      "sets": 5,
+      "reps": "45s/45s",
+      "restSec": 45,
+      "tempoNoteAr": "انطلاق قوي على الإيقاع مع السيطرة على التنفس",
+      "tempoNoteEn": "Drive stride length on chorus peak"
+    }
   }
 ]
